@@ -15,7 +15,6 @@ import cad.Teacher;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private TextView feedback;
     private EditText edt_user, edt_pass;
     private Intent change;
 
@@ -69,7 +68,6 @@ public class LoginActivity extends AppCompatActivity {
         change = new Intent(this, MainMenu.class);
         edt_user = findViewById(R.id.edt_user);
         edt_pass = findViewById(R.id.edt_pass);
-        feedback = findViewById(R.id.txt_feedback);
         Button bLogin = findViewById(R.id.btn_login);
 
         bLogin.setOnClickListener(new View.OnClickListener() {
@@ -94,4 +92,18 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("USER_TEACHER", user);
         editor.apply();
     }
+
+    /**
+     * Lleva al formulario de registro
+     *
+     * @param v
+     */
+    public void goRegister(View v){
+        startActivity(new Intent(this, RegisterActivity.class));
+    }
+
+//    public void goForgetPass(View v){
+//        startActivity(new Intent(this, ForgetActivity.class));
+//    }
+
 }

@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity" >
 
     <TextView
         android:id="@+id/txt_user"
@@ -51,11 +56,27 @@
         android:layout_height="50dp"
         android:text="Login"
         android:layout_marginBottom="20dp"
-        android:layout_gravity="center"/>
-    
+        android:layout_gravity="center" />
+
     <TextView
-        android:id="@+id/txt_feedback"
+        android:id="@+id/txt_forget"
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="Forget password? Click here"
+        android:textColor="#2a4779"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/txt_register"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:onClick="goRegister"
+        android:text="No account? Click here"
+        android:textColor="#2a4779"
+        android:textStyle="italic" />
 
 </LinearLayout>
+</ScrollView>
