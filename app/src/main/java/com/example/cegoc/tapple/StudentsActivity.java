@@ -9,16 +9,23 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.Scroller;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import cad.Student;
 import cad.Teacher;
 
-public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class StudentsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private class Tarea extends android.os.AsyncTask<Void, Teacher, Teacher> {
+    private class Tarea extends android.os.AsyncTask<Void, ArrayList<Student>, ArrayList<Student>> {
 
         @Override
         protected void onPreExecute() {
@@ -27,32 +34,27 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         }
 
         @Override
-        protected Teacher doInBackground(Void... voids) {
+        protected ArrayList<Student> doInBackground(Void... voids) {
             cad.TappleCAD t = new cad.TappleCAD();
             int id_teacher=getTeacherID();
             // Si la id es 0, no existe el usuario
             if(id_teacher != 0){
-                return t.showProfile(id_teacher);
+                return t.showStudents(id_teacher);
             } else{
                 return null;
             }
         }
 
         @Override
-        protected void onPostExecute(Teacher t) {
-            super.onPostExecute(t);
+        protected void onPostExecute(ArrayList<Student> list) {
+            super.onPostExecute(list);
             // Si no existe el usuario no se hace otra llamada a la BD
-            if(t != null){
-                TextView tName = findViewById(R.id.txt_profile_name);
-                TextView tSurnames = findViewById(R.id.txt_profile_surnames);
-                TextView tEmail = findViewById(R.id.txt_profile_email);
-                TextView tBirthday = findViewById(R.id.txt_profile_birthday);
-                tName.setText(t.getName());
-                tSurnames.setText(t.getSurname1() + " " + t.getSurname2());
-                tEmail.setText(t.getEmail());
-                tBirthday.setText(t.getBirthday().toString());
+            if(list.size() != 0){
+                for(Student s : list){
+                    createViewStudent(s.getName(), s.getSurname1(), s.getSurname2());
+                }
             } else {
-
+                //ToDo No tiene alumnos
             }
         }
 
@@ -65,7 +67,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_students);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -137,5 +139,38 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     private int getTeacherID(){
         return getSharedPreferences("TEACHER_INFO", Context.MODE_PRIVATE).
                 getInt("ID_TEACHER",0);
+    }
+
+    /**
+     * Crea una linea con el nombre y apellidos del alumno
+     *
+     * @param nombre
+     * @param ap1
+     * @param ap2
+     */
+    private void createViewStudent(String nombre, String ap1, String ap2){
+        LinearLayout sv = findViewById(R.id.linear_students);
+        LinearLayout auxLinear = new LinearLayout(this);
+        auxLinear.setOrientation(LinearLayout.HORIZONTAL);
+        auxLinear.setLayoutParams(new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        auxLinear.setPadding(toDp(10, auxLinear),toDp(10, auxLinear),
+                toDp(10, auxLinear),toDp(10, auxLinear));
+        TextView auxText = new TextView(this);
+        auxText.setGravity(Gravity.CENTER);
+        auxText.setText(nombre + " " +ap1 + " " + ap2);
+        auxLinear.addView(auxText);
+        sv.addView(auxLinear);
+    }
+
+    /**
+     * Este metodo pasa de pixeles a dp
+     *
+     * @param num numero de pixeles
+     * @return num transformado a dp
+     */
+    private int toDp(int num, LinearLayout lea){
+        float factor = lea.getResources().getDisplayMetrics().density;
+        return (int) factor*num;
     }
 }

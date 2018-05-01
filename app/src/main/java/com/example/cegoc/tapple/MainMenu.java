@@ -50,11 +50,15 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_profile) {
+        if (id == R.id.nav_home) {
+            startActivity(new Intent(this, MainMenu.class));
+            finishAffinity();
+        } else if (id == R.id.nav_profile) {
             startActivity(new Intent(this, ProfileActivity.class));
             finishAffinity();
         } else if (id == R.id.nav_students) {
-            // ToDo Ir a la actividad de estudiantes
+            startActivity(new Intent(this, StudentsActivity.class));
+            finishAffinity();
         } else if (id == R.id.nav_meeting) {
             // ToDo Ir a la actividad de citas
         }
