@@ -11,19 +11,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import cad.Teacher;
 
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private ProgressBar pb;
+
     private class Tarea extends android.os.AsyncTask<Void, Teacher, Teacher> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //ToDo Estaria bien avisar de que se esta haciendo algo y que hay que esperar
+            pb.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -41,6 +43,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         @Override
         protected void onPostExecute(Teacher t) {
             super.onPostExecute(t);
+            pb.setVisibility(View.GONE);
             // Si no existe el usuario no se hace otra llamada a la BD
             if(t != null){
                 TextView tName = findViewById(R.id.txt_profile_name);
@@ -59,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         @Override
         protected void onCancelled() {
             super.onCancelled();
+            pb.setVisibility(View.GONE);
         }
     }
 
@@ -68,6 +72,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        pb = findViewById(R.id.pb_profile);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,

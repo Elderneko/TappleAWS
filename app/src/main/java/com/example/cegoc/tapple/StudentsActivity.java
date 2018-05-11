@@ -14,23 +14,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.Scroller;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import cad.Student;
-import cad.Teacher;
 
 public class StudentsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private class Tarea extends android.os.AsyncTask<Void, ArrayList<Student>, ArrayList<Student>> {
+    private ProgressBar pb;
+
+    private class BackTaskDB extends android.os.AsyncTask<Void, ArrayList<Student>, ArrayList<Student>> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //ToDo Estaria bien avisar de que se esta haciendo algo y que hay que esperar
+            pb.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -48,6 +48,7 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
         @Override
         protected void onPostExecute(ArrayList<Student> list) {
             super.onPostExecute(list);
+            pb.setVisibility(View.GONE);
             // Si no existe el usuario no se hace otra llamada a la BD
             if(list.size() != 0){
                 for(Student s : list){
@@ -61,6 +62,7 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
         @Override
         protected void onCancelled() {
             super.onCancelled();
+            pb.setVisibility(View.GONE);
         }
     }
 
@@ -70,6 +72,8 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
         setContentView(R.layout.activity_students);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        pb = findViewById(R.id.pb_students);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
@@ -81,7 +85,7 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
 
         loadUsername();
-        new Tarea().execute();
+        new BackTaskDB().execute();
     }
 
     @Override
