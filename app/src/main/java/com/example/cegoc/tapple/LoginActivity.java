@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import cad.Teacher;
 
-public class LoginActivity extends AppCompatActivity {
+public class  nLoginActivity extends AppCompatActivity {
 
     private TextView feedback;
     private EditText edt_user, edt_pass;
