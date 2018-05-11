@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,16 +16,18 @@ import cad.Teacher;
 
 public class  nLoginActivity extends AppCompatActivity {
 
-    private TextView feedback;
     private EditText edt_user, edt_pass;
     private Intent change;
+    private ProgressBar pb;
+    private Button btn;
 
-    private class Tarea extends android.os.AsyncTask<Void, Teacher, Teacher> {
+    private class BackTaskDB extends android.os.AsyncTask<Void, Teacher, Teacher> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //ToDo Estaria bien avisar de que se esta haciendo algo y que hay que esperar
+            pb.setVisibility(View.VISIBLE);
+            btn.setEnabled(false);
         }
 
         @Override
@@ -42,6 +45,8 @@ public class  nLoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Teacher t) {
             super.onPostExecute(t);
+            pb.setVisibility(View.GONE);
+            btn.setEnabled(true);
             // Si no existe el usuario no se hace otra llamada a la BD
             if(t != null){
                 // Iniciando sesion...
@@ -58,6 +63,8 @@ public class  nLoginActivity extends AppCompatActivity {
         @Override
         protected void onCancelled() {
             super.onCancelled();
+            pb.setVisibility(View.GONE);
+            btn.setEnabled(true);
         }
     }
 
@@ -66,16 +73,17 @@ public class  nLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        pb = findViewById(R.id.pb_login);
+        btn = findViewById(R.id.btn_login);
         change = new Intent(this, MainMenu.class);
         edt_user = findViewById(R.id.edt_user);
         edt_pass = findViewById(R.id.edt_pass);
-        feedback = findViewById(R.id.txt_feedback);
         Button bLogin = findViewById(R.id.btn_login);
 
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    new Tarea().execute();
+                new BackTaskDB().execute();
             }
         });
     }
@@ -94,4 +102,18 @@ public class  nLoginActivity extends AppCompatActivity {
         editor.putString("USER_TEACHER", user);
         editor.apply();
     }
+
+    /**
+     * Lleva al formulario de registro
+     *
+     * @param v
+     */
+    public void goRegister(View v){
+        startActivity(new Intent(this, RegisterActivity.class));
+    }
+
+//    public void goForgetPass(View v){
+//        startActivity(new Intent(this, ForgetActivity.class));
+//    }
+
 }

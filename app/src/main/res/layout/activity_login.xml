@@ -1,61 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<RelativeLayout
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".LoginActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/txt_user"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="User"
-        android:layout_marginBottom="5dp"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <EditText
-        android:id="@+id/edt_user"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="text"
-        android:layout_marginBottom="5dp"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="85dp" />
-
-    <TextView
-        android:id="@+id/txt_pass"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Password"
-        android:layout_marginBottom="5dp"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <EditText
-        android:id="@+id/edt_pass"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:layout_marginBottom="10dp"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="85dp" />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="150dp"
+    <ProgressBar
+        android:id="@+id/pb_login"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:text="Login"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="center"/>
-    
-    <TextView
-        android:id="@+id/txt_feedback"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
 
-</LinearLayout>
+    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".LoginActivity" >
+
+        <TextView
+            android:id="@+id/txt_user"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="User"
+            android:layout_marginBottom="5dp"
+            tools:layout_editor_absoluteX="15dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <EditText
+            android:id="@+id/edt_user"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_marginBottom="5dp"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="85dp" />
+
+        <TextView
+            android:id="@+id/txt_pass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Password"
+            android:layout_marginBottom="5dp"
+            tools:layout_editor_absoluteX="15dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <EditText
+            android:id="@+id/edt_pass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:layout_marginBottom="10dp"
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="85dp" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Login"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/txt_forget"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Forget password? Click here"
+            android:textColor="#2a4779"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/txt_register"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:onClick="goRegister"
+            android:text="No account? Click here"
+            android:textColor="#2a4779"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>
