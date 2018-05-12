@@ -22,4 +22,13 @@
 
     <include layout="@layout/content_students" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_add_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        app:backgroundTint="@color/aasd"
+        android:src="@drawable/ic_menu_manage"
+        android:layout_margin="16dp" />
+
 </android.support.design.widget.CoordinatorLayout>
