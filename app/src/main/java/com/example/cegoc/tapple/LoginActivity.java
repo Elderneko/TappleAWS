@@ -78,9 +78,8 @@ public class  LoginActivity extends AppCompatActivity {
         change = new Intent(this, MainMenu.class);
         edt_user = findViewById(R.id.edt_user);
         edt_pass = findViewById(R.id.edt_pass);
-        Button bLogin = findViewById(R.id.btn_login);
 
-        bLogin.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new BackTaskDB().execute();
