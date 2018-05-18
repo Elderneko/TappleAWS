@@ -110,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
         day = findViewById(R.id.edt_day);
         pass = findViewById(R.id.edt_pass);
         pass2 = findViewById(R.id.edt_pass2);
-        phone = findViewById(R.id.edt_phone);
+        //phone = findViewById(R.id.edt_phone);
 
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {

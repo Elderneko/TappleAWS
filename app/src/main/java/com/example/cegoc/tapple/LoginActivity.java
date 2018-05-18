@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import cad.Teacher;
 
-public class  nLoginActivity extends AppCompatActivity {
+public class  LoginActivity extends AppCompatActivity {
 
     private EditText edt_user, edt_pass;
     private Intent change;
