@@ -24,6 +24,7 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_add_student"
+        android:onClick="goAddStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"

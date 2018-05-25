@@ -20,6 +20,11 @@
             android:id="@+id/nav_meeting"
             android:icon="@drawable/outline_calendar_today_black_18dp"
             android:title="Meetings" />
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"

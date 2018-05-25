@@ -185,4 +185,8 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
         float factor = lea.getResources().getDisplayMetrics().density;
         return (int) factor*num;
     }
+
+    public void goAddStudent(View v){
+        setContentView(R.layout.activity_add_student);
+    }
 }

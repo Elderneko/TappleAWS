@@ -89,6 +89,7 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
+                android:background="@color/colorPrimary"
                 android:text="Login" />
 
             <TextView
