@@ -14,13 +14,14 @@ import android.widget.Toast;
 import java.sql.Date;
 import java.util.Calendar;
 
+import cad.Student;
 import cad.Teacher;
 
 public class AddStudentActivity extends AppCompatActivity {
 
     private Intent change;
-    private EditText dni, name, surname1, surname2, email, user, pass,
-            pass2, phone, year, month, day;
+    private EditText dni, name, surname1, surname2, email,
+            phone, year, month, day;
     private ProgressBar pb;
 
     private class BackTaskDB extends android.os.AsyncTask<Void, Integer, Integer> {
@@ -34,53 +35,37 @@ public class AddStudentActivity extends AppCompatActivity {
         @Override
         protected Integer doInBackground(Void... voids) {
             cad.TappleCAD t = new cad.TappleCAD();
-            boolean existe = t.checkRegister(user.getText().toString(), email.getText().toString(),
-                    dni.getText().toString());
-            if(!existe){
-                // Creo un objeto teacher con los datos del formulario
-                int yearI, monthI, dayI;
-                yearI = Integer.valueOf(year.getText().toString());
-                monthI = Integer.valueOf(month.getText().toString());
-                dayI = Integer.valueOf(day.getText().toString());
-                // Creo un Calendario
-                Calendar cal = Calendar.getInstance();
-                // Lo inicializo con los valores del formulario
-                cal.set(yearI,monthI,dayI);
-                // Creo la fecha basada en ese calendario
-                Date birthday = new Date(cal.getTimeInMillis());
-                //Creo el profesor con los datos del formulario
-                Teacher teacher = new Teacher(0,
-                        Integer.valueOf(phone.getText().toString()),
-                        dni.getText().toString(),
-                        name.getText().toString(),
-                        surname1.getText().toString(),
-                        surname2.getText().toString(),
-                        email.getText().toString(),
-                        user.getText().toString(),
-                        pass.getText().toString(),
-                        birthday);
-                // Hacer un insert a la BD
-                t.addTeacher(teacher);
-            }
-            // Retornar el id del profesor con usuario el que esta en el formulario
-            return t.checkLogin(user.getText().toString(), pass.getText().toString());
+            int yearI, monthI, dayI;
+            yearI = Integer.valueOf(year.getText().toString());
+            monthI = Integer.valueOf(month.getText().toString());
+            dayI = Integer.valueOf(day.getText().toString());
+            // Creo un Calendario
+            Calendar cal = Calendar.getInstance();
+            // Lo inicializo con los valores del formulario
+            cal.set(yearI,monthI,dayI);
+            // Creo la fecha basada en ese calendario
+            Date birthday = new Date(cal.getTimeInMillis());
+            //Creo el estudiante con los datos del formulario
+            Student student = new Student(0,
+                    getTeacherID(),
+                    Integer.valueOf(phone.getText().toString()),
+                    dni.getText().toString(),
+                    name.getText().toString(),
+                    surname1.getText().toString(),
+                    surname2.getText().toString(),
+                    email.getText().toString(),
+                    birthday);
+            // Hacer un insert a la BD
+            t.addStudent(student);
+            return 1;
         }
 
         @Override
         protected void onPostExecute(Integer aInteger) {
             super.onPostExecute(aInteger);
             pb.setVisibility(View.GONE);
-            // Si no existe el usuario no se hace otra llamada a la BD
-            if(aInteger != 0){
-                // Iniciando sesion...
-                saveInfo(aInteger, user.getText().toString());
-                startActivity(change);
-                finishAffinity();
-            } else {
-                // Registro incorrecto
-                Toast.makeText(AddStudentActivity.this,
-                        "Registro no valido",Toast.LENGTH_LONG).show();
-            }
+            startActivity(change);
+            finishAffinity();
         }
 
         @Override
@@ -93,13 +78,12 @@ public class AddStudentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_add_student);
 
         // Init
-        change = new Intent(this, MainMenu.class);
+        change = new Intent(this, StudentsActivity.class);
 
         pb = findViewById(R.id.pb_register);
-        user = findViewById(R.id.edt_user);
         email = findViewById(R.id.edt_email);
         dni = findViewById(R.id.edt_dni);
         name = findViewById(R.id.edt_name);
@@ -108,9 +92,7 @@ public class AddStudentActivity extends AppCompatActivity {
         year = findViewById(R.id.edt_year);
         month = findViewById(R.id.edt_month);
         day = findViewById(R.id.edt_day);
-        pass = findViewById(R.id.edt_pass);
-        pass2 = findViewById(R.id.edt_pass2);
-        //phone = findViewById(R.id.edt_phone);
+        phone = findViewById(R.id.edt_phone);
 
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -127,18 +109,13 @@ public class AddStudentActivity extends AppCompatActivity {
     }
 
     /**
-     * Guarda en el shared preferences una id y un nombre
+     * Devuelve la id del profesor almacenada en el shared preferences
      *
-     * @param id_param id a guardar
-     * @param user nombre de usuario a guardar
+     * @return int id
      */
-    private void saveInfo(int id_param, String user){
-        SharedPreferences preferencias=getSharedPreferences("TEACHER_INFO",
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferencias.edit();
-        editor.putInt("ID_TEACHER", id_param);
-        editor.putString("USER_TEACHER", user);
-        editor.apply();
+    private int getTeacherID(){
+        return getSharedPreferences("TEACHER_INFO", Context.MODE_PRIVATE).
+                getInt("ID_TEACHER",0);
     }
 
     /**
@@ -152,23 +129,9 @@ public class AddStudentActivity extends AppCompatActivity {
         if(!dni.getText().toString().equals("") && !name.getText().toString().equals("") &&
                 !surname1.getText().toString().equals("") && !surname2.getText().toString().equals("") &&
                 !year.getText().toString().equals("") && !month.getText().toString().equals("") &&
-                !day.getText().toString().equals("") && !email.getText().toString().equals("") &&
-                !pass.getText().toString().equals("") && !pass2.getText().toString().equals("")){
-            // Si pass y pass2 son iguales
-            if(pass.getText().toString().equals(pass2.getText().toString())){
-                retorno = true;
-            }
+                !day.getText().toString().equals("") && !email.getText().toString().equals("")){
+            retorno=true;
         }
         return retorno;
-    }
-
-    /**
-     * Lleva al formulario de login
-     *
-     * @param v
-     */
-    public void goLogin(View v){
-        startActivity(new Intent(this, LoginActivity.class));
-        finishAffinity();
     }
 }

@@ -182,13 +182,13 @@
                 tools:layout_editor_absoluteY="85dp" />
 
             <EditText
-                android:id="@+id/phone"
+                android:id="@+id/edt_phone"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
                 android:hint="phone"
-                android:inputType="number"
+                android:inputType="phone"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 

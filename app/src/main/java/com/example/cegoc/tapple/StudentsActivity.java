@@ -78,7 +78,7 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StudentsActivity.this, MainMenu.class));
+                startActivity(new Intent(StudentsActivity.this, AddStudentActivity.class));
             }
         });
         pb = findViewById(R.id.pb_students);
@@ -184,9 +184,5 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
     private int toDp(int num, LinearLayout lea){
         float factor = lea.getResources().getDisplayMetrics().density;
         return (int) factor*num;
-    }
-
-    public void goAddStudent(View v){
-        setContentView(R.layout.activity_add_student);
     }
 }

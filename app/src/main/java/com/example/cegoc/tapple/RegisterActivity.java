@@ -19,7 +19,7 @@ import cad.Teacher;
 public class RegisterActivity extends AppCompatActivity {
 
     private Intent change;
-    private EditText dni, name, surname1, surname2, email, user, pass,
+    private EditText dni, name, surname1, surname2, email, user, pass, answer,
             pass2, phone, year, month, day;
     private ProgressBar pb;
 
@@ -58,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
                         email.getText().toString(),
                         user.getText().toString(),
                         pass.getText().toString(),
+                        answer.getText().toString(),
                         birthday);
                 // Hacer un insert a la BD
                 t.addTeacher(teacher);
@@ -110,7 +111,8 @@ public class RegisterActivity extends AppCompatActivity {
         day = findViewById(R.id.edt_day);
         pass = findViewById(R.id.edt_pass);
         pass2 = findViewById(R.id.edt_pass2);
-        //phone = findViewById(R.id.edt_phone);
+        phone = findViewById(R.id.edt_phone);
+        answer = findViewById(R.id.edt_answer);
 
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +155,8 @@ public class RegisterActivity extends AppCompatActivity {
                 !surname1.getText().toString().equals("") && !surname2.getText().toString().equals("") &&
                 !year.getText().toString().equals("") && !month.getText().toString().equals("") &&
                 !day.getText().toString().equals("") && !email.getText().toString().equals("") &&
-                !pass.getText().toString().equals("") && !pass2.getText().toString().equals("")){
+                !phone.getText().toString().equals("") && !pass.getText().toString().equals("") &&
+                !pass2.getText().toString().equals("") && !answer.getText().toString().equals("")){
             // Si pass y pass2 son iguales
             if(pass.getText().toString().equals(pass2.getText().toString())){
                 retorno = true;
