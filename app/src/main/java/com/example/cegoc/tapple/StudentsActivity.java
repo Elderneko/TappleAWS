@@ -53,7 +53,7 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
             // Si no existe el usuario no se hace otra llamada a la BD
             if(list.size() != 0){
                 for(Student s : list){
-                    createViewStudent(s.getName(), s.getSurname1(), s.getSurname2());
+                    createViewStudent(s);
                 }
             } else {
                 //ToDo No tiene alumnos
@@ -154,13 +154,9 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
     }
 
     /**
-     * Crea una linea con el nombre y apellidos del alumno
-     *
-     * @param nombre
-     * @param ap1
-     * @param ap2
+     * Crea una linea con el nombre y apellidos del alumno y su onclick
      */
-    private void createViewStudent(String nombre, String ap1, String ap2){
+    private void createViewStudent(Student s){
         LinearLayout sv = findViewById(R.id.linear_students);
         LinearLayout auxLinear = new LinearLayout(this);
         auxLinear.setOrientation(LinearLayout.HORIZONTAL);
@@ -170,7 +166,17 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
                 toDp(10, auxLinear),toDp(10, auxLinear));
         TextView auxText = new TextView(this);
         auxText.setGravity(Gravity.CENTER);
-        auxText.setText(nombre + " " +ap1 + " " + ap2);
+        auxText.setText(s.getName() + " " + s.getSurname1() + " " + s.getSurname2());
+        auxLinear.setTag(s.getId_student());
+        auxLinear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int id = (int) v.getTag();
+                //TODO Se manda la ID a otra actividad que la recoge, tira la consulta a la BD
+                //TODO y muestra todos los datos de ese alumno, si no existe se comprueba
+                //TODO antes de mostrar los datos en un if. Todo esto en la otra activity
+            }
+        });
         auxLinear.addView(auxText);
         sv.addView(auxLinear);
     }
