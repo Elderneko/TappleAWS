@@ -3,6 +3,7 @@ package com.example.cegoc.tapple;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cad.Teacher;
 
@@ -72,6 +74,16 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = findViewById(R.id.btn_add_student);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ProfileActivity.this, "Ir a EditProfile", Toast.LENGTH_SHORT).show();
+                //ToDo Quitar el comentario cuando se cree EditProfile
+                //startActivity(new Intent(ProfileActivity.this, EditProfile.class));
+            }
+        });
 
         pb = findViewById(R.id.pb_profile);
 

@@ -10,23 +10,20 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.ArrayList;
+import android.widget.Toast;
 
 import cad.Student;
 
-public class StudentsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class StudentProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ProgressBar pb;
+    private int id_student;
 
-    private class BackTaskDB extends android.os.AsyncTask<Void, ArrayList<Student>, ArrayList<Student>> {
+    private class BackTaskDB extends android.os.AsyncTask<Void, Student, Student> {
 
         @Override
         protected void onPreExecute() {
@@ -35,28 +32,24 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
         }
 
         @Override
-        protected ArrayList<Student> doInBackground(Void... voids) {
+        protected Student doInBackground(Void... voids) {
             cad.TappleCAD t = new cad.TappleCAD();
-            int id_teacher=getTeacherID();
             // Si la id es 0, no existe el usuario
-            if(id_teacher != 0){
-                return t.showStudents(id_teacher);
+            if(id_student != 0){
+                return t.showStudent(id_student);
             } else{
                 return null;
             }
         }
 
         @Override
-        protected void onPostExecute(ArrayList<Student> list) {
-            super.onPostExecute(list);
+        protected void onPostExecute(Student s) {
+            super.onPostExecute(s);
             pb.setVisibility(View.GONE);
-            // Si no existe el usuario no se hace otra llamada a la BD
-            if(list.size() != 0){
-                for(Student s : list){
-                    createViewStudent(s);
-                }
+            if(s != null){
+                //ToDo Muestra datos (a la espera del diseño)
             } else {
-                //ToDo No tiene alumnos
+                //ToDo No existe
             }
         }
 
@@ -67,21 +60,26 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
         }
     }
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_students);
+        setContentView(R.layout.activity_student_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.btn_add_student);
+        id_student = getIntent().getIntExtra("ID_STUDENT", 0);
+        pb = findViewById(R.id.pb_profile_student);
+
+        FloatingActionButton fab = findViewById(R.id.btn_edit_student);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StudentsActivity.this, AddStudentActivity.class));
+                Toast.makeText(StudentProfile.this, "Ir a EditStudent", Toast.LENGTH_SHORT).show();
+                //ToDo Quitar el comentario cuando se cree StudentEdit
+                //Intent i = new Intent(StudentProfile.this, StudentEdit.class);
+                //i.putExtra("ID_STUDENT", 0);
+                //startActivity(i);
             }
         });
-        pb = findViewById(R.id.pb_students);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
@@ -94,6 +92,7 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
 
         loadUsername();
         new BackTaskDB().execute();
+
     }
 
     @Override
@@ -141,54 +140,5 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
         String aux = getSharedPreferences("TEACHER_INFO", Context.MODE_PRIVATE).
                 getString("USER_TEACHER","");
         tv.setText(aux);
-    }
-
-    /**
-     * Devuelve la id del profesor almacenada en el shared preferences
-     *
-     * @return int id
-     */
-    private int getTeacherID(){
-        return getSharedPreferences("TEACHER_INFO", Context.MODE_PRIVATE).
-                getInt("ID_TEACHER",0);
-    }
-
-    /**
-     * Crea una linea con el nombre y apellidos del alumno y su onclick
-     */
-    private void createViewStudent(Student s){
-        LinearLayout sv = findViewById(R.id.linear_students);
-        LinearLayout auxLinear = new LinearLayout(this);
-        auxLinear.setOrientation(LinearLayout.HORIZONTAL);
-        auxLinear.setLayoutParams(new LinearLayout.LayoutParams
-                (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        auxLinear.setPadding(toDp(10, auxLinear),toDp(10, auxLinear),
-                toDp(10, auxLinear),toDp(10, auxLinear));
-        TextView auxText = new TextView(this);
-        auxText.setGravity(Gravity.CENTER);
-        auxText.setText(s.getName() + " " + s.getSurname1() + " " + s.getSurname2());
-        auxLinear.setTag(s.getId_student());
-        auxLinear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int id = (int) v.getTag();
-                Intent i = new Intent(StudentsActivity.this, StudentProfile.class);
-                i.putExtra("ID_STUDENT", id);
-                startActivity(i);
-            }
-        });
-        auxLinear.addView(auxText);
-        sv.addView(auxLinear);
-    }
-
-    /**
-     * Este metodo pasa de pixeles a dp
-     *
-     * @param num numero de pixeles
-     * @return num transformado a dp
-     */
-    private int toDp(int num, LinearLayout lea){
-        float factor = lea.getResources().getDisplayMetrics().density;
-        return (int) factor*num;
     }
 }
