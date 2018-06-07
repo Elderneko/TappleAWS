@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,8 +21,10 @@ import cad.Student;
 
 public class StudentProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private String address, city;
     private ProgressBar pb;
     private int id_student;
+    private Button mapa;
 
     private class BackTaskDB extends android.os.AsyncTask<Void, Student, Student> {
 
@@ -29,6 +32,7 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
         protected void onPreExecute() {
             super.onPreExecute();
             pb.setVisibility(View.VISIBLE);
+            mapa.setEnabled(false);
         }
 
         @Override
@@ -47,7 +51,13 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
             super.onPostExecute(s);
             pb.setVisibility(View.GONE);
             if(s != null){
+                // Se va a usar en el maps
+                city = s.getCity();
+                address = s.getAddress();
+                mapa.setEnabled(true);
                 //ToDo Muestra datos (a la espera del diseño)
+                Toast.makeText(StudentProfile.this, s.getAddress()+ "," + s.getCity(), Toast.LENGTH_LONG).show();
+                // Seria hacer solo los setText a los elementos del xml, no crearlo por codigo
             } else {
                 //ToDo No existe
             }
@@ -68,6 +78,18 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
 
         id_student = getIntent().getIntExtra("ID_STUDENT", 0);
         pb = findViewById(R.id.pb_profile_student);
+
+        mapa = findViewById(R.id.btn_map);
+        mapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(StudentProfile.this, StudentLocation.class);
+                i.putExtra("ADDRESS", address);
+                i.putExtra("CITY", city);
+                // Se inicia la actividad
+                startActivity(i);
+            }
+        });
 
         FloatingActionButton fab = findViewById(R.id.btn_edit_student);
         fab.setOnClickListener(new View.OnClickListener() {

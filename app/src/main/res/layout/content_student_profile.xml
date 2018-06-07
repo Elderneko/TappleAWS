@@ -21,5 +21,12 @@
         tools:context=".StudentProfile"
         tools:showIn="@layout/app_bar_student_profile">
 
+        <Button
+            android:id="@+id/btn_map"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show in Map"/>
+
 </LinearLayout>
 </RelativeLayout>
