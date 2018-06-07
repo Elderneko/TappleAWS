@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:paddingBottom="50dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ProgressBar
@@ -12,9 +13,10 @@
         android:visibility="invisible" />
 
     <ScrollView xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -83,20 +85,20 @@
             <TextView
                 android:id="@+id/txt_birthday"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:text="Birthday"
+                android:layout_height="30dp"
+                android:layout_marginBottom="2dp"
+                android:text="Birthday:"
                 tools:layout_editor_absoluteX="15dp"
                 tools:layout_editor_absoluteY="16dp" />
 
             <EditText
                 android:id="@+id/mostrar_fecha"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/formato_fecha"
-
+                android:layout_marginBottom="10dp"
                 android:inputType="date"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -118,8 +120,30 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:hint="phone"
+                android:hint="Phone"
                 android:inputType="phone"
+                tools:layout_editor_absoluteX="68dp"
+                tools:layout_editor_absoluteY="85dp" />
+
+            <EditText
+                android:id="@+id/edt_address"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="text"
+                tools:layout_editor_absoluteX="68dp"
+                tools:layout_editor_absoluteY="85dp" />
+
+            <EditText
+                android:id="@+id/edt_city"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="City"
+                android:inputType="text"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
