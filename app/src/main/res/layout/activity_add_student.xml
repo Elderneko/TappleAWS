@@ -94,7 +94,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
 <<<<<<< HEAD
-<<<<<<< HEAD
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -118,8 +117,6 @@
                     app:srcCompat="@drawable/outline_calendar_today_black_18dp" />
             </LinearLayout>
 =======
-=======
->>>>>>> b02c346462ecbecc5dacb17d46f6c45ea7ad11e5
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
