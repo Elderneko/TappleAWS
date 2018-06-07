@@ -101,7 +101,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         // Activity Main nombre Profesor
         TextView name = findViewById(R.id.txt_drawer_username);
         name.setText(aux);
-<<<<<<< HEAD
     }
 
     private void MrWonderfull(){
@@ -114,7 +113,5 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         int rndFrase = rnd.nextInt(fraseNum - 0 + 1) + 0;
         fWonderfull.setText(frase[rndFrase]);
         //Fin de la seccion moñas
-=======
->>>>>>> b02c346462ecbecc5dacb17d46f6c45ea7ad11e5
     }
 }
