@@ -37,9 +37,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
         loadUsername();
 
-<<<<<<< HEAD
-        MrWonderfull();
-=======
+
         //Seccion Mr.Wonderfull
         fWonderfull = findViewById(R.id.txt_fraseWonderfull);
         Resources res = getResources();
@@ -50,7 +48,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         int random = (int) (Math.random()* fraseNum);
         fWonderfull.setText(frase[random]);
         //Fin de la seccion moñas
->>>>>>> b02c346462ecbecc5dacb17d46f6c45ea7ad11e5
     }
 
     @Override
@@ -101,17 +98,5 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         // Activity Main nombre Profesor
         TextView name = findViewById(R.id.txt_drawer_username);
         name.setText(aux);
-    }
-
-    private void MrWonderfull(){
-        //Seccion Mr.Wonderfull
-        Resources res = getResources();
-        String[] frase = res.getStringArray(R.array.frases);
-        int fraseNum = 0;
-        for (String s : frase) {fraseNum++;}
-        Random rnd = new Random();
-        int rndFrase = rnd.nextInt(fraseNum - 0 + 1) + 0;
-        fWonderfull.setText(frase[rndFrase]);
-        //Fin de la seccion moñas
     }
 }
