@@ -8,57 +8,41 @@
     tools:showIn="@layout/app_bar_main_menu">
 
     <LinearLayout
-        android:layout_width="385dp"
+        android:layout_width="408dp"
         android:layout_height="457dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="44dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.81">
 
-        <RatingBar
-            android:id="@+id/ratingBar"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <RatingBar
-            android:id="@+id/ratingBar2"
+            <TextView
+                android:id="@+id/bienvenida"
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bienvenid@" />
+
+            <TextView
+                android:id="@+id/txt_drawer_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/fraseWonderfull"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <RatingBar
-            android:id="@+id/ratingBar3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <RatingBar
-            android:id="@+id/ratingBar4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <RatingBar
-            android:id="@+id/ratingBar5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <RatingBar
-            android:id="@+id/ratingBar6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <RatingBar
-            android:id="@+id/ratingBar7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <RatingBar
-            android:id="@+id/ratingBar8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:text="TextView" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

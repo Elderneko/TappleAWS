@@ -84,91 +84,19 @@
             android:id="@+id/txt_birthday"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Birthday"
             android:layout_marginBottom="5dp"
+            android:text="Birthday"
             tools:layout_editor_absoluteX="15dp"
             tools:layout_editor_absoluteY="16dp" />
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/mostrar_fecha"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txt_day"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:textAlignment="viewEnd"
-                android:text="Day"
-                android:layout_marginEnd="5dp" />
-
-            <EditText
-                android:id="@+id/edt_day"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:hint="dd"
-                android:textSize="15sp"
-                android:textAlignment="center"
-                android:ems="10"
-                android:layout_marginBottom="10dp"
-                android:inputType="date"
-                tools:layout_editor_absoluteX="68dp"
-                tools:layout_editor_absoluteY="85dp" />
-
-            <TextView
-                android:id="@+id/txt_month"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:textAlignment="textEnd"
-                android:text="Month"
-                android:layout_marginEnd="5dp"
-                tools:layout_editor_absoluteX="15dp"
-                tools:layout_editor_absoluteY="16dp" />
-
-            <EditText
-                android:id="@+id/edt_month"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="mm"
-                android:textSize="15sp"
-                android:textAlignment="center"
-                android:layout_marginBottom="10dp"
-                android:inputType="date"
-                tools:layout_editor_absoluteX="68dp"
-                tools:layout_editor_absoluteY="85dp" />
-
-            <TextView
-                android:id="@+id/txt_year"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="Year"
-                android:textAlignment="textEnd"
-                android:layout_marginEnd="5dp"
-                tools:layout_editor_absoluteX="15dp"
-                tools:layout_editor_absoluteY="16dp" />
-
-            <EditText
-                android:id="@+id/edt_year"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="2"
-                android:ems="10"
-                android:hint="yyyy"
-                android:textSize="15sp"
-                android:textAlignment="center"
-                android:layout_marginBottom="10dp"
-                android:inputType="date"
-                tools:layout_editor_absoluteX="68dp"
-                tools:layout_editor_absoluteY="85dp" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/formato_fecha"
+            android:inputType="date"/>
 
         <EditText
             android:id="@+id/edt_email"

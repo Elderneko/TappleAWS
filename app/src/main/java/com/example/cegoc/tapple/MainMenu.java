@@ -2,6 +2,7 @@ package com.example.cegoc.tapple;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +14,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.Random;
 
+public class MainMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    final TextView fWonderfull = (TextView) findViewById(R.id.fraseWonderfull);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,16 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         navigationView.setNavigationItemSelectedListener(this);
 
         loadUsername();
+
+        //Seccion Mr.Wonderfull
+        Resources res = getResources();
+        String[] frase = res.getStringArray(R.array.frases);
+        int fraseNum = 0;
+        for (String s : frase) {fraseNum++;}
+        Random rnd = new Random();
+        int rndFrase = rnd.nextInt(fraseNum - 0 + 1) + 0;
+        fWonderfull.setText(frase[rndFrase]);
+        //Fin de la seccion moñas
     }
 
     @Override

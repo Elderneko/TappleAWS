@@ -3,7 +3,6 @@ package com.example.cegoc.tapple;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -21,13 +20,12 @@ import java.sql.Date;
 import java.util.Calendar;
 
 import cad.Student;
-import cad.Teacher;
 
-public class AddStudentActivity extends AppCompatActivity {
+public class NewMeetingActivity extends AppCompatActivity {
 
     private Intent change;
     private EditText dni, name, surname1, surname2, email,
-            phone, year, month, day, date;
+            phone, year, month, day, date, time;
     private ProgressBar pb;
 
     private static final String TAG = "AddStudentActivity";
@@ -100,6 +98,7 @@ public class AddStudentActivity extends AppCompatActivity {
         surname1 = findViewById(R.id.edt_surname1);
         surname2 = findViewById(R.id.edt_surname2);
         date = findViewById(R.id.mostrar_fecha);
+        time = findViewById(R.id.mostrar_hora);
         phone = findViewById(R.id.edt_phone);
 
         Button btn_register = findViewById(R.id.btn_register);
@@ -109,7 +108,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 if(validForm()){
                     new BackTaskDB().execute();
                 } else{
-                    Toast.makeText(AddStudentActivity.this, "El formulario no es valido",
+                    Toast.makeText(NewMeetingActivity.this, "El formulario no es valido",
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -125,7 +124,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(
-                        AddStudentActivity.this,
+                        NewMeetingActivity.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
                         year,month,day);

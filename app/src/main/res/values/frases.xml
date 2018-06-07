@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="frases">
+        <item>«Aquellos que educan bien a los niños merecen recibir más honores que sus propios padres, porque aquellos solo les dieron vida, éstos el arte de vivir bien.»</item>
+        <item>«Educación es todo. Educación es el futuro.»</item>
+        <item>«Sólo la educación puede salvar al mundo.»</item>
+        <item>«El arte supremo del maestro consiste en despertar el goce de la expresión creativa y del conocimiento.»</item>
+        <item>«Siempre que enseñes, enseña a la vez a dudar de lo que enseñas».</item>
+    </string-array>
+</resources>
