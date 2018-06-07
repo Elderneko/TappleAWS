@@ -59,8 +59,8 @@ public class StudentLocation extends FragmentActivity implements OnMapReadyCallb
         LatLng location = new LatLng(lat, lon);
         mMap.addMarker(new MarkerOptions().position(location));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-        mMap.setMinZoomPreference(5.0f);
-        mMap.setMaxZoomPreference(19.0f);
+        mMap.setMinZoomPreference(7.0f);
+        mMap.setMaxZoomPreference(18.0f);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f));
     }
 
