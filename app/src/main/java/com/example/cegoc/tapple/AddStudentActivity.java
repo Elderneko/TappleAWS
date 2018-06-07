@@ -26,7 +26,7 @@ import cad.Teacher;
 public class AddStudentActivity extends AppCompatActivity {
 
     private Intent change;
-    private EditText dni, name, surname1, surname2, email,
+    private EditText dni, name, surname1, surname2, email, address, city,
             phone, year, month, day, date;
     private ProgressBar pb;
 
@@ -64,6 +64,8 @@ public class AddStudentActivity extends AppCompatActivity {
                     surname1.getText().toString(),
                     surname2.getText().toString(),
                     email.getText().toString(),
+                    address.getText().toString(),
+                    city.getText().toString(),
                     birthday);
             // Hacer un insert a la BD
             t.addStudent(student);
@@ -99,7 +101,7 @@ public class AddStudentActivity extends AppCompatActivity {
         name = findViewById(R.id.edt_name);
         surname1 = findViewById(R.id.edt_surname1);
         surname2 = findViewById(R.id.edt_surname2);
-        date = findViewById(R.id.mostrar_fecha);
+        //date = findViewById(R.id.mostrar_fecha);
         phone = findViewById(R.id.edt_phone);
 
         Button btn_register = findViewById(R.id.btn_register);
@@ -115,7 +117,7 @@ public class AddStudentActivity extends AppCompatActivity {
             }
         });
 
-        mDisplayDate = (TextView) findViewById(R.id.mostrar_fecha);
+        mDisplayDate = findViewById(R.id.mostrar_fecha);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

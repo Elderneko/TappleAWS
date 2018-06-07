@@ -17,7 +17,8 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    final TextView fWonderfull = (TextView) findViewById(R.id.fraseWonderfull);
+    private TextView fWonderfull;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +37,20 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
         loadUsername();
 
+<<<<<<< HEAD
+        MrWonderfull();
+=======
         //Seccion Mr.Wonderfull
+        fWonderfull = findViewById(R.id.txt_fraseWonderfull);
         Resources res = getResources();
         String[] frase = res.getStringArray(R.array.frases);
         int fraseNum = 0;
-        for (String s : frase) {fraseNum++;}
+        fraseNum = frase.length;
         Random rnd = new Random();
-        int rndFrase = rnd.nextInt(fraseNum - 0 + 1) + 0;
-        fWonderfull.setText(frase[rndFrase]);
+        int random = (int) (Math.random()* fraseNum);
+        fWonderfull.setText(frase[random]);
         //Fin de la seccion moñas
+>>>>>>> b02c346462ecbecc5dacb17d46f6c45ea7ad11e5
     }
 
     @Override
@@ -92,5 +98,20 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         String aux = getSharedPreferences("TEACHER_INFO", Context.MODE_PRIVATE).
                 getString("USER_TEACHER","");
         tv.setText(aux);
+        // Activity Main nombre Profesor
+        TextView name = findViewById(R.id.txt_drawer_username);
+        name.setText(aux);
+    }
+
+    private void MrWonderfull(){
+        //Seccion Mr.Wonderfull
+        Resources res = getResources();
+        String[] frase = res.getStringArray(R.array.frases);
+        int fraseNum = 0;
+        for (String s : frase) {fraseNum++;}
+        Random rnd = new Random();
+        int rndFrase = rnd.nextInt(fraseNum - 0 + 1) + 0;
+        fWonderfull.setText(frase[rndFrase]);
+        //Fin de la seccion moñas
     }
 }
