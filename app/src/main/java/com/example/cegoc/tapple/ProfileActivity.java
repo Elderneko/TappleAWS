@@ -126,7 +126,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
             startActivity(new Intent(this, StudentsActivity.class));
             finishAffinity();
         } else if (id == R.id.nav_meeting) {
-            // ToDo Ir a la actividad de citas
+            startActivity(new Intent(this, MeetingList.class));
+            finishAffinity();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

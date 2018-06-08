@@ -56,6 +56,19 @@
             android:name=".StudentProfile"
             android:label="@string/title_activity_student_profile"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".StudentLocation"
+            android:label="@string/title_activity_student_location" />
+
+        <activity
+            android:name=".NewMeetingActivity" />
+
+        <activity
+            android:name=".MeetingList"
+            android:label="@string/title_activity_meeting_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -68,9 +81,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".StudentLocation"
-            android:label="@string/title_activity_student_location"></activity>
     </application>
 
 </manifest>

@@ -5,12 +5,7 @@
     android:paddingBottom="50dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ProgressBar
-        android:id="@+id/pb_register"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:visibility="invisible" />
+
 
     <ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
@@ -37,14 +32,21 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/darker_gray" />
 
-            <EditText
-                android:id="@+id/meet_name"
+            <ProgressBar
+                android:id="@+id/pb_meet_add"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spn_student"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="5dp"
+                android:background="#f3fdff"
                 android:ems="10"
-                android:hint="Name"
-                android:inputType="text"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 

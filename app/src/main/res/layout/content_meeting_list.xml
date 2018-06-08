@@ -6,27 +6,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ProgressBar
-        android:id="@+id/pb_profile_student"
+        android:id="@+id/pb_meeting"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:visibility="invisible" />
 
+    <!-- app:layout_behavior="@string/appbar_scrolling_view_behavior" -->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".StudentProfile"
-        tools:showIn="@layout/app_bar_student_profile">
+        tools:context=".MeetingList"
+        tools:showIn="@layout/app_bar_meeting_list">
 
-        <Button
-            android:id="@+id/btn_map"
-            android:layout_marginTop="60dp"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Show in Map"/>
+            android:layout_height="match_parent">
 
-</LinearLayout>
+            <LinearLayout
+                android:id="@+id/linear_students"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 </RelativeLayout>

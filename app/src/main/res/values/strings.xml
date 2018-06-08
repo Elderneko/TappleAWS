@@ -18,5 +18,6 @@
 
     <string name="instructions">Place your fingertip on the Home button to verify your identity</string>
     <string name="title_activity_student_location">Map</string>
+    <string name="title_activity_meeting_list">MeetingList</string>
 
 </resources>
