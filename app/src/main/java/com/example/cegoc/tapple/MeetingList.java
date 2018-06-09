@@ -31,7 +31,7 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.btn_add_meeting);
+        FloatingActionButton fab = findViewById(R.id.btn_new_meeting);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

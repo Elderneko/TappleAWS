@@ -34,6 +34,9 @@ public class AddStudentActivity extends AppCompatActivity {
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
+    /**
+     * Clase asincrona que inserta un estudiante en la BD
+     */
     private class BackTaskDB extends android.os.AsyncTask<Void, Integer, Integer> {
 
         @Override

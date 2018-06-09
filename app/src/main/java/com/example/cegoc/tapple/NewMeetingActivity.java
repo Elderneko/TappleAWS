@@ -24,21 +24,26 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import cad.Meeting;
 import cad.Student;
 
 public class NewMeetingActivity extends AppCompatActivity {
 
-    private ProgressBar pb;
+    private Intent change;
+    private ProgressBar pb_spin, pb;
     private int id_alumno_aux;
     private Spinner spin;
     private ArrayList<ListaSpinner> lista;
 
+    /**
+     * Clase asincrona que ejecuta la consulta a la BD para rellenar el Spinner
+     */
     private class BackTaskDB0 extends android.os.AsyncTask<Void, ArrayList<Student>, ArrayList<Student>> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pb.setVisibility(View.VISIBLE);
+            pb_spin.setVisibility(View.VISIBLE);
             spin.setVisibility(View.GONE);
         }
 
@@ -57,7 +62,7 @@ public class NewMeetingActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(ArrayList<Student> list) {
             super.onPostExecute(list);
-            pb.setVisibility(View.GONE);
+            pb_spin.setVisibility(View.GONE);
             // Si no existe el usuario no se hace otra llamada a la BD
             if(list.size() != 0){
                 String nombrecompleto;
@@ -75,19 +80,64 @@ public class NewMeetingActivity extends AppCompatActivity {
         @Override
         protected void onCancelled() {
             super.onCancelled();
-            pb.setVisibility(View.GONE);
+            pb_spin.setVisibility(View.GONE);
             spin.setVisibility(View.VISIBLE);
         }
     }
 
-    //ToDo Otra tarea asincrona tirando el insert de meeting
+    /**
+     * Clase asincrona para insertar la cita en la BD
+     */
+    private class BackTaskDB1 extends android.os.AsyncTask<Void, Integer, Integer> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pb.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Integer doInBackground(Void... voids) {
+            cad.TappleCAD t = new cad.TappleCAD();
+            Meeting m = null;
+            // ToDo Crear meeting con los datos del formulario para hacer el insert
+            t.addMeeting(m, id_alumno_aux);
+            return 1;
+        }
+
+        @Override
+        protected void onPostExecute(Integer aInteger) {
+            super.onPostExecute(aInteger);
+            pb.setVisibility(View.GONE);
+            startActivity(change);
+            finishAffinity();
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+            pb.setVisibility(View.GONE);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meeting);
 
-        pb = findViewById(R.id.pb_meet_add);
+        change = new Intent(this, MeetingList.class);
+
+        pb_spin = findViewById(R.id.pb_spinner);
+        pb = findViewById(R.id.pb_add_meeting);
+
+        Button btn_add = findViewById(R.id.btn_add_meeting);
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ToDo Si ControlDeFormulario(), ejecuta tarea
+                new BackTaskDB1().execute();
+            }
+        });
 
         // Spinner list
         lista = new ArrayList<>();
@@ -121,8 +171,9 @@ public class NewMeetingActivity extends AppCompatActivity {
 
     }
 
-    // ToDo Controlar formulario, en el caso del spinner si el valor es -1 es que no hay nada
-
+    // ToDo Crear metodo para controlar formulario,
+    // ToDo en el caso del spinner si el valor es -1 es que no hay nada
+    // ToDo el metodo debe retornar true o false
     /**
      * Devuelve la id del profesor almacenada en el shared preferences
      *
