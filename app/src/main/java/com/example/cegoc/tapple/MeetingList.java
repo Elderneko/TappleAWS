@@ -98,6 +98,8 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
         navigationView.setNavigationItemSelectedListener(this);
 
         loadUsername();
+
+        new BackTaskDB().execute();
     }
 
     @Override
