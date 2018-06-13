@@ -80,8 +80,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
             @Override
             public void onClick(View v) {
                 Toast.makeText(ProfileActivity.this, "Ir a EditProfile", Toast.LENGTH_SHORT).show();
-                //ToDo Quitar el comentario cuando se cree EditProfile
-                //startActivity(new Intent(ProfileActivity.this, EditProfile.class));
+                startActivity(new Intent(ProfileActivity.this, EditProfile.class));
             }
         });
 
