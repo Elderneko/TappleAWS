@@ -23,28 +23,30 @@ public class ChangePass extends AppCompatActivity {
             super.onPreExecute();
             pb.setVisibility(View.VISIBLE);
             btn.setEnabled(false);
-
         }
 
         @Override
         protected Integer doInBackground(Void... voids) {
             cad.TappleCAD t = new cad.TappleCAD();
-            if (user != null && pass.getText().toString().equals(pass2.getText().toString())){
+            if (user != null && controlFormulario()){
                 t.changePass(user, pass.getText().toString());
+                return 1;
             } else {
                 btn.setEnabled(true);
                 Toast.makeText(ChangePass.this, "Las contraseñas no coinciden",
                         Toast.LENGTH_SHORT).show();
+                return 0;
             }
-            return 1;
         }
 
         @Override
         protected void onPostExecute(Integer aInteger) {
             super.onPostExecute(aInteger);
             pb.setVisibility(View.GONE);
-            startActivity(new Intent(ChangePass.this, LoginActivity.class));
-            finishAffinity();
+            if(aInteger == 1){
+                startActivity(new Intent(ChangePass.this, LoginActivity.class));
+                finishAffinity();
+            }
         }
 
         @Override
@@ -61,8 +63,8 @@ public class ChangePass extends AppCompatActivity {
 
         pb = findViewById(R.id.pb_change);
         user = getIntent().getStringExtra("USER");
-        pass = findViewById(R.id.edt_pass);
-        pass2 = findViewById(R.id.edt_pass2);
+        pass = findViewById(R.id.edt_pw1);
+        pass2 = findViewById(R.id.edt_pw2);
         btn = findViewById(R.id.btn_change_pw);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,5 +73,9 @@ public class ChangePass extends AppCompatActivity {
             }
         });
 
+    }
+
+    public boolean controlFormulario(){
+        return pass.getText().toString().equals(pass2.getText().toString());
     }
 }

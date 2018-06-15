@@ -184,9 +184,9 @@ public class  LoginActivity extends AppCompatActivity {
         startActivity(new Intent(this, RegisterActivity.class));
     }
 
-//    public void goForgetPass(View v){
-//        startActivity(new Intent(this, ForgetActivity.class));
-//    }
+    public void goForgetPass(View v){
+        startActivity(new Intent(this, ForgetPass.class));
+    }
 
     // Declare a string variable for the key we’re going to use in our fingerprint authentication
     private static final String KEY_NAME = "yourKey";

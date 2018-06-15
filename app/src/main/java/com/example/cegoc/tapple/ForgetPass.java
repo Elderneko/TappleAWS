@@ -29,7 +29,7 @@ public class ForgetPass extends AppCompatActivity {
         @Override
         protected Teacher doInBackground(Void... voids) {
             cad.TappleCAD t = new cad.TappleCAD();
-            return t.findTeacherByUser(user.getText().toString());
+            return t.findTeacherByUser(user.getText().toString(), answer.getText().toString());
         }
 
         @Override
@@ -64,5 +64,11 @@ public class ForgetPass extends AppCompatActivity {
         user = findViewById(R.id.edt_user);
         answer = findViewById(R.id.edt_answer);
         btn_send = findViewById(R.id.btn_send);
+        btn_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Tarea().execute();
+            }
+        });
     }
 }

@@ -98,6 +98,7 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
+                android:onClick="goForgetPass"
                 android:text="Forget password? Click here"
                 android:textColor="#2a4779"
                 android:textStyle="italic" />

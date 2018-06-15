@@ -22,6 +22,7 @@ import cad.Teacher;
 
 public class EditProfile extends AppCompatActivity {
 
+    private Button btn;
     private ProgressBar pb;
     private EditText tName, tSurname1, tSurname2, tPhone, tEmail, tBirthday, tDNI;
 
@@ -76,6 +77,7 @@ public class EditProfile extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             pb.setVisibility(View.VISIBLE);
+            btn.setEnabled(false);
         }
 
         @Override
@@ -116,6 +118,7 @@ public class EditProfile extends AppCompatActivity {
             super.onPostExecute(aVoid);
 
             pb.setVisibility(View.GONE);
+            btn.setEnabled(true);
 
             startActivity(new Intent(EditProfile.this, ProfileActivity.class));
             finishAffinity();
@@ -125,6 +128,7 @@ public class EditProfile extends AppCompatActivity {
         protected void onCancelled() {
             super.onCancelled();
             pb.setVisibility(View.GONE);
+            btn.setEnabled(true);
         }
     }
 
@@ -144,11 +148,11 @@ public class EditProfile extends AppCompatActivity {
 
         new Tarea().execute();
 
-        Button btn = findViewById(R.id.btn_sendProfile);
+        btn = findViewById(R.id.btn_sendProfile);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                new BackTaskDB().execute();
             }
         });
     }
