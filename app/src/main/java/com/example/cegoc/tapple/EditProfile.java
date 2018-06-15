@@ -15,7 +15,6 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Locale;
 
 import cad.Teacher;
@@ -88,17 +87,17 @@ public class EditProfile extends AppCompatActivity {
                 DateFormat format =new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
                 Date birthday = null;
                 try {
-                    birthday = (Date) format.parse(tBirthday.getText().toString());
+                    birthday = new Date(format.parse(tBirthday.getText().toString()).getTime());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
                 //Creo el profesor con los datos del formulario
-                Teacher teacher = new Teacher(0,
+                Teacher teacher = new Teacher(getTeacherID(),
                         Integer.valueOf(tPhone.getText().toString()),
-                        tDNI.getText().toString(),
-                        tName.getText().toString(),
-                        tSurname1.getText().toString(),
-                        tSurname2.getText().toString(),
+                        tDNI.getText().toString().toUpperCase(),
+                        tName.getText().toString().toUpperCase(),
+                        tSurname1.getText().toString().toUpperCase(),
+                        tSurname2.getText().toString().toUpperCase(),
                         tEmail.getText().toString(),
                         "",
                         "",
@@ -174,9 +173,9 @@ public class EditProfile extends AppCompatActivity {
                 || tEmail.getText().toString().equals("") ||
                 tPhone.getText().toString().equals("") ||
                 tBirthday.getText().toString().equals("")){
-            return true;
-        } else{
             return false;
+        } else{
+            return true;
         }
     }
 }

@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                 DateFormat format =new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
                 Date birthday = null;
                 try {
-                    birthday = (Date) format.parse(mDisplayDate.getText().toString());
+                    birthday = new Date(format.parse(mDisplayDate.getText().toString()).getTime());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }

@@ -96,7 +96,6 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
             @Override
             public void onClick(View v) {
                 Toast.makeText(StudentProfile.this, "Ir a EditStudent", Toast.LENGTH_SHORT).show();
-                //ToDo Quitar el comentario cuando se cree StudentEdit
                 Intent i = new Intent(StudentProfile.this, StudentEdit.class);
                 i.putExtra("ID_STUDENT", id_student);
                 startActivity(i);
