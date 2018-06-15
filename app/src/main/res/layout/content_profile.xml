@@ -8,7 +8,6 @@
     tools:showIn="@layout/app_bar_profile">
 
 <RelativeLayout
-    android:id="@+id/contenedor_principal"
     android:layout_marginTop="57dp"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
@@ -24,6 +23,7 @@
         android:visibility="invisible"/>
 
     <LinearLayout
+        android:id="@+id/contenedor_principal"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
