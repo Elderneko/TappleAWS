@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ import cad.Teacher;
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ProgressBar pb;
+    private TextView tDNI, tName, tSurname1, tSurname2, tEmail, tBirthday, tPhone;
+    private RelativeLayout r;
 
     private class Tarea extends android.os.AsyncTask<Void, Teacher, Teacher> {
 
@@ -28,6 +31,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         protected void onPreExecute() {
             super.onPreExecute();
             pb.setVisibility(View.VISIBLE);
+
+            r.setVisibility(View.INVISIBLE);
         }
 
         @Override
@@ -48,16 +53,18 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
             pb.setVisibility(View.GONE);
             // Si no existe el usuario no se hace otra llamada a la BD
             if(t != null){
-                TextView tName = findViewById(R.id.txt_profile_name);
-                TextView tSurnames = findViewById(R.id.txt_profile_surnames);
-                TextView tEmail = findViewById(R.id.txt_profile_email);
-                TextView tBirthday = findViewById(R.id.txt_profile_birthday);
+                tDNI.setText(t.getDni());
                 tName.setText(t.getName());
-                tSurnames.setText(t.getSurname1() + " " + t.getSurname2());
+                tSurname1.setText(t.getSurname1());
+                tSurname2.setText(t.getSurname2());
                 tEmail.setText(t.getEmail());
                 tBirthday.setText(t.getBirthday().toString());
-            } else {
+                tPhone.setText(String.valueOf(t.getPhone()));
 
+                r.setVisibility(View.VISIBLE);
+            } else {
+                Toast.makeText(ProfileActivity.this, "No se han podido mostrar datos",
+                        Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -65,6 +72,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         protected void onCancelled() {
             super.onCancelled();
             pb.setVisibility(View.GONE);
+            Toast.makeText(ProfileActivity.this, "No se han podido mostrar datos",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -85,6 +94,15 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         });
 
         pb = findViewById(R.id.pb_profile);
+
+        r = findViewById(R.id.contenedor_principal);
+        tDNI = findViewById(R.id.txt_profile_dni);
+        tName = findViewById(R.id.txt_profile_name);
+        tSurname1 = findViewById(R.id.txt_profile_surname1);
+        tSurname2 = findViewById(R.id.txt_profile_surname2);
+        tEmail = findViewById(R.id.txt_profile_email);
+        tBirthday = findViewById(R.id.txt_profile_birthday);
+        tPhone = findViewById(R.id.txt_profile_phone);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,

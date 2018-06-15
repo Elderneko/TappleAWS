@@ -18,7 +18,7 @@ import cad.Teacher;
 public class EditProfile extends AppCompatActivity {
 
     private ProgressBar pb;
-    private EditText tName, tSurnames, tEmail, tBirthday;
+    private EditText tName, tSurname1, tSurname2, tPhone, tEmail, tBirthday, tDNI;
 
     private class Tarea extends android.os.AsyncTask<Void, Teacher, Teacher> {
 
@@ -46,10 +46,13 @@ public class EditProfile extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             // Si no existe el usuario no se hace otra llamada a la BD
             if(t != null){
+                tDNI.setText(t.getDni());
                 tName.setText(t.getName());
-                tSurnames.setText(t.getSurname1() + " " + t.getSurname2());
+                tSurname1.setText(t.getSurname1());
+                tSurname2.setText(t.getSurname2());
                 tEmail.setText(t.getEmail());
                 tBirthday.setText(t.getBirthday().toString());
+                tPhone.setText(String.valueOf(t.getPhone()));
             } else {
 
             }
@@ -61,7 +64,8 @@ public class EditProfile extends AppCompatActivity {
             pb.setVisibility(View.GONE);
         }
     }
-    
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +73,13 @@ public class EditProfile extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
 
         pb = findViewById(R.id.pb_profile);
+        tDNI = findViewById(R.id.edt_profile_dni);
         tName = findViewById(R.id.edt_profile_name);
-        tSurnames = findViewById(R.id.edt_profile_surnames);
+        tSurname1 = findViewById(R.id.edt_profile_surname1);
+        tSurname2 = findViewById(R.id.edt_profile_surname2);
         tEmail = findViewById(R.id.edt_profile_email);
         tBirthday = findViewById(R.id.edt_profile_birthday);
+        tPhone = findViewById(R.id.edt_profile_phone);
 
         Button btn = findViewById(R.id.btn_sendProfile);
         btn.setOnClickListener(new View.OnClickListener() {

@@ -135,7 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        mDisplayDate = (TextView) findViewById(R.id.mostrar_fecha);
+        mDisplayDate = findViewById(R.id.mostrar_fecha);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
