@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
     private ProgressBar pb;
     private TextView tDNI, tName, tSurname1, tSurname2, tEmail, tBirthday, tPhone;
-    private RelativeLayout r;
+    private LinearLayout r;
 
     private class Tarea extends android.os.AsyncTask<Void, Teacher, Teacher> {
 
