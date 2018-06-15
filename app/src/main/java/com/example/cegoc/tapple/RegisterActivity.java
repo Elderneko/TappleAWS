@@ -18,7 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import cad.Teacher;
 
@@ -47,17 +51,14 @@ public class RegisterActivity extends AppCompatActivity {
             boolean existe = t.checkRegister(user.getText().toString(), email.getText().toString(),
                     dni.getText().toString());
             if(!existe){
-                // Creo un objeto teacher con los datos del formulario
-                int yearI, monthI, dayI;
-                yearI = Integer.valueOf(year.getText().toString());
-                monthI = Integer.valueOf(month.getText().toString());
-                dayI = Integer.valueOf(day.getText().toString());
-                // Creo un Calendario
-                Calendar cal = Calendar.getInstance();
-                // Lo inicializo con los valores del formulario
-                cal.set(yearI,monthI,dayI);
-                // Creo la fecha basada en ese calendario
-                Date birthday = new Date(cal.getTimeInMillis());
+                // Coge la fecha en string y la pasa a fecha
+                DateFormat format =new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+                Date birthday = null;
+                try {
+                    birthday = (Date) format.parse(mDisplayDate.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 //Creo el profesor con los datos del formulario
                 Teacher teacher = new Teacher(0,
                         Integer.valueOf(phone.getText().toString()),
@@ -116,7 +117,6 @@ public class RegisterActivity extends AppCompatActivity {
         name = findViewById(R.id.edt_name);
         surname1 = findViewById(R.id.edt_surname1);
         surname2 = findViewById(R.id.edt_surname2);
-        date = findViewById(R.id.mostrar_fecha);
         pass = findViewById(R.id.edt_pass);
         pass2 = findViewById(R.id.edt_pass2);
         phone = findViewById(R.id.edt_phone);

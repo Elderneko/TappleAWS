@@ -1,6 +1,7 @@
 package com.example.cegoc.tapple;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import cad.Teacher;
 
@@ -46,13 +51,13 @@ public class EditProfile extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             // Si no existe el usuario no se hace otra llamada a la BD
             if(t != null){
-                tDNI.setText(t.getDni());
-                tName.setText(t.getName());
-                tSurname1.setText(t.getSurname1());
-                tSurname2.setText(t.getSurname2());
-                tEmail.setText(t.getEmail());
-                tBirthday.setText(t.getBirthday().toString());
-                tPhone.setText(String.valueOf(t.getPhone()));
+                tDNI.setText(t.getDni(), TextView.BufferType.EDITABLE);
+                tName.setText(t.getName(), TextView.BufferType.EDITABLE);
+                tSurname1.setText(t.getSurname1(), TextView.BufferType.EDITABLE);
+                tSurname2.setText(t.getSurname2(), TextView.BufferType.EDITABLE);
+                tEmail.setText(t.getEmail(), TextView.BufferType.EDITABLE);
+                tBirthday.setText(t.getBirthday().toString(), TextView.BufferType.EDITABLE);
+                tPhone.setText(String.valueOf(t.getPhone()), TextView.BufferType.EDITABLE);
             } else {
 
             }
@@ -65,7 +70,63 @@ public class EditProfile extends AppCompatActivity {
         }
     }
 
+    private class BackTaskDB extends android.os.AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pb.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            if(controlFormulario()){
+                cad.TappleCAD t = new cad.TappleCAD();
+                // Coge la fecha en string y la pasa a fecha
+                DateFormat format =new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+                Date birthday = null;
+                try {
+                    birthday = (Date) format.parse(tBirthday.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                //Creo el profesor con los datos del formulario
+                Teacher teacher = new Teacher(0,
+                        Integer.valueOf(tPhone.getText().toString()),
+                        tDNI.getText().toString(),
+                        tName.getText().toString(),
+                        tSurname1.getText().toString(),
+                        tSurname2.getText().toString(),
+                        tEmail.getText().toString(),
+                        "",
+                        "",
+                        "",
+                        birthday
+                        );
+                // Hacer un insert a la BD
+                t.editTeacher(teacher);
+            } else{
+                Toast.makeText(EditProfile.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            pb.setVisibility(View.GONE);
+
+            startActivity(new Intent(EditProfile.this, ProfileActivity.class));
+            finishAffinity();
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+            pb.setVisibility(View.GONE);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +141,8 @@ public class EditProfile extends AppCompatActivity {
         tEmail = findViewById(R.id.edt_profile_email);
         tBirthday = findViewById(R.id.edt_profile_birthday);
         tPhone = findViewById(R.id.edt_profile_phone);
+
+        new Tarea().execute();
 
         Button btn = findViewById(R.id.btn_sendProfile);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -98,5 +161,18 @@ public class EditProfile extends AppCompatActivity {
     private int getTeacherID(){
         return getSharedPreferences("TEACHER_INFO", Context.MODE_PRIVATE).
                 getInt("ID_TEACHER",0);
+    }
+
+    private boolean controlFormulario(){
+        if(tDNI.getText().toString().equals("") || tName.getText().toString().equals("")
+                || tSurname1.getText().toString().equals("") ||
+                tSurname2.getText().toString().equals("")
+                || tEmail.getText().toString().equals("") ||
+                tPhone.getText().toString().equals("") ||
+                tBirthday.getText().toString().equals("")){
+            return true;
+        } else{
+            return false;
+        }
     }
 }
