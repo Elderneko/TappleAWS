@@ -20,7 +20,9 @@
             android:layout_height="50dp"
             android:layout_centerInParent="true"
             android:visibility="invisible"/>
-
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -28,6 +30,8 @@
             android:layout_height="match_parent"
             tools:context=".ProfileActivity"
             tools:showIn="@layout/app_bar_profile"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -180,6 +184,7 @@
                 android:text="Change"/>
 
         </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
