@@ -47,4 +47,10 @@
     <string name="havePass">You have a password</string>
     <string name="welcome">Welcome</string>
 
+    <string-array name="isPaid_Spinner">
+        <item></item>
+        <item>true</item>
+        <item>false</item>
+    </string-array>
+
 </resources>

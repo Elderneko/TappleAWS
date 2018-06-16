@@ -89,7 +89,6 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ProfileActivity.this, "Ir a EditProfile", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(ProfileActivity.this, EditProfile.class));
             }
         });

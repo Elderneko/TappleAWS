@@ -1,6 +1,7 @@
 package com.example.cegoc.tapple;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,22 +9,27 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageButton;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Spinner;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 
 import cad.Meeting;
 import cad.Student;
@@ -33,12 +39,13 @@ public class NewMeetingActivity extends AppCompatActivity {
     private Intent change;
     private ProgressBar pb_spin, pb;
     private int id_alumno_aux;
-    private Spinner spin;
+    private Spinner spin, isPaid;
     private ArrayList<ListaSpinner> lista;
-
+    private EditText money;
     private static final String TAG = "NewMeetingActivity";
-    private TextView mDisplayDate;
+    private TextView mDisplayDate, mDisplayDate2;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private TimePickerDialog.OnTimeSetListener mTimeSetListener;
 
     /**
      * Clase asincrona que ejecuta la consulta a la BD para rellenar el Spinner
@@ -104,8 +111,26 @@ public class NewMeetingActivity extends AppCompatActivity {
         @Override
         protected Integer doInBackground(Void... voids) {
             cad.TappleCAD t = new cad.TappleCAD();
-            Meeting m = null;
+
+            // Coge la fecha y tiempo en string y la pasa a TimeStamp
+            DateFormat format =new SimpleDateFormat("yyyy-MM-dd hh:mm", Locale.UK);
+            Timestamp fechaCreaccion = null;
+            try {
+                fechaCreaccion = new Timestamp(format.parse(
+                        mDisplayDate.getText().toString()+ " " +
+                                mDisplayDate2.getText().toString()).getTime());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
             // ToDo Crear meeting con los datos del formulario para hacer el insert
+            Meeting m = new Meeting(0,
+                    id_alumno_aux,
+                    Integer.valueOf(money.getText().toString()),
+                    new Timestamp(System.currentTimeMillis()),
+                    fechaCreaccion,
+                    false,
+                    (boolean)isPaid.getSelectedItem());
             t.addMeeting(m, id_alumno_aux);
             return 1;
         }
@@ -134,6 +159,7 @@ public class NewMeetingActivity extends AppCompatActivity {
 
         pb_spin = findViewById(R.id.pb_spinner);
         pb = findViewById(R.id.pb_add_meeting);
+        money = findViewById(R.id.meet_money);
 
         Button btn_add = findViewById(R.id.btn_add_meeting);
         btn_add.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +236,36 @@ public class NewMeetingActivity extends AppCompatActivity {
             }
         };
         // End Datepicker
+
+        // Timepicker
+        mDisplayDate2 = findViewById(R.id.mostrar_hora);
+        mDisplayDate2.setKeyListener(null);
+        mDisplayDate2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int hours = cal.get(Calendar.HOUR_OF_DAY);
+                int minutes = cal.get(Calendar.MINUTE);
+
+                TimePickerDialog dialog = new TimePickerDialog(
+                        NewMeetingActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mTimeSetListener,
+                        hours,minutes, true);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hours, int minutes) {
+
+                String time = hours + ":" + minutes;
+                mDisplayDate2.setText(time);
+            }
+        };
+        // End Timepicker
 
     }
 

@@ -124,7 +124,6 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(StudentProfile.this, "Ir a EditStudent", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(StudentProfile.this, StudentEdit.class);
                 i.putExtra("ID_STUDENT", id_student);
                 startActivity(i);
