@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:paddingBottom="50dp"
@@ -23,8 +23,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         tools:context=".LoginActivity" >
 
         <TextView
@@ -92,14 +90,31 @@
             tools:layout_editor_absoluteX="15dp"
             tools:layout_editor_absoluteY="16dp" />
 
-        <EditText
-            android:id="@+id/mostrar_fecha"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:focusable="false"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/formato_fecha"/>
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/mostrar_fecha"
+                android:layout_width="276dp"
+                android:layout_height="wrap_content"
+                android:layout_constraintLeft_toLeftOf="parent"
+                android:layout_constraintTop_toBottomOf="@+id/textView"
+                android:layout_weight="1"
+
+                android:ems="10"
+                android:hint="@string/formato_fecha"
+                android:inputType="date" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/outline_calendar_today_black_18dp" />
+
+        </LinearLayout>
 
         <EditText
             android:id="@+id/edt_email"

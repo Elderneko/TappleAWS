@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -145,7 +146,7 @@ public class AddStudentActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
+                Log.d(TAG, "onDateSet: yyyy-mm-dd: " + year + "-" + month + "-" + day);
 
                 String date = year + "-" + month + "-" + day;
                 mDisplayDate.setText(date);

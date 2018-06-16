@@ -100,4 +100,21 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         TextView name = findViewById(R.id.txt_drawer_username);
         name.setText(aux);
     }
+
+    public void GoToProfile(View view)
+    {
+        startActivity(new Intent(this, ProfileActivity.class));
+        finishAffinity();
+    }
+    public void GoToStudents(View view)
+    {
+        startActivity(new Intent(this, StudentsActivity.class));
+        finishAffinity();
+    }
+
+    public void GoToMeetings(View view)
+    {
+        startActivity(new Intent(this, MeetingList.class));
+        finishAffinity();
+    }
 }

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Spinner;
@@ -34,6 +35,11 @@ public class NewMeetingActivity extends AppCompatActivity {
     private int id_alumno_aux;
     private Spinner spin;
     private ArrayList<ListaSpinner> lista;
+
+    private static final String TAG = "NewMeetingActivity";
+    private TextView mDisplayDate;
+    private ImageButton mAddDate;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     /**
      * Clase asincrona que ejecuta la consulta a la BD para rellenar el Spinner
@@ -172,6 +178,37 @@ public class NewMeetingActivity extends AppCompatActivity {
 
         // Se lanza la tarea asincrona
         new BackTaskDB0().execute();
+
+
+        mAddDate = findViewById(R.id.adddate);
+        mAddDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        NewMeetingActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: yyyy-mm-dd: " + year + "-" + month + "-" + day);
+
+                String date = year + "-" + month + "-" + day;
+                mDisplayDate.setText(date);
+            }
+        };
 
     }
 

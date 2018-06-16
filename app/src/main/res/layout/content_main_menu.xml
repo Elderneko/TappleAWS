@@ -8,40 +8,107 @@
     tools:showIn="@layout/app_bar_main_menu">
 
     <LinearLayout
-        android:layout_width="408dp"
-        android:layout_height="457dp"
-        android:layout_marginBottom="44dp"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/bienvenida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txt_bienvenida"
-                android:layout_width="167dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bienvenid@" />
-
-            <TextView
-                android:id="@+id/txt_drawer_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_marginTop="10dp"
-            android:id="@+id/txt_fraseWonderfull"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content" />
+            android:id="@+id/txt_bienvenida"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bienvenid@"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/txt_drawer_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nombre Usuario"
+            android:textColor="#000000" />
     </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bienvenida">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:onClick="GoToProfile"
+                app:srcCompat="@drawable/outline_face_black_18dp" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:onClick="GoToStudents"
+                app:srcCompat="@drawable/outline_people_black_18dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:onClick="GoToMeetings"
+                app:srcCompat="@drawable/outline_calendar_today_black_18dp" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:onClick="GoToMeetings"
+                app:srcCompat="@drawable/outline_access_time_black_18dp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/txt_fraseWonderfull"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Frase emotiva standard"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        app:layout_constraintVertical_bias="0.661" />
+
 </android.support.constraint.ConstraintLayout>
