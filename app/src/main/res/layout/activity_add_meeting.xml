@@ -82,8 +82,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/formato_fecha"
-
-                android:inputType="date"
+                android:focusable="false"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 

@@ -181,6 +181,7 @@ public class NewMeetingActivity extends AppCompatActivity {
 
 
         mDisplayDate = findViewById(R.id.mostrar_fecha);
+        mDisplayDate.setKeyListener(null);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

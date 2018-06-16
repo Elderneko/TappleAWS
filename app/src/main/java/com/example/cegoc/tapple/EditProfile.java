@@ -1,11 +1,16 @@
 package com.example.cegoc.tapple;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,6 +20,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 import cad.Teacher;
@@ -24,6 +30,9 @@ public class EditProfile extends AppCompatActivity {
     private Button btn;
     private ProgressBar pb;
     private EditText tName, tSurname1, tSurname2, tPhone, tEmail, tBirthday, tDNI;
+
+    private static final String TAG = "RegisterActivity";
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private class Tarea extends android.os.AsyncTask<Void, Teacher, Teacher> {
 
@@ -145,7 +154,7 @@ public class EditProfile extends AppCompatActivity {
         tBirthday = findViewById(R.id.edt_profile_birthday);
         tPhone = findViewById(R.id.edt_profile_phone);
 
-        new Tarea().execute();
+
 
         btn = findViewById(R.id.btn_sendProfile);
         btn.setEnabled(false);
@@ -155,6 +164,39 @@ public class EditProfile extends AppCompatActivity {
                 new BackTaskDB().execute();
             }
         });
+
+        // Se rellenan los edittext con datos
+        new Tarea().execute();
+
+        tBirthday.setKeyListener(null);
+        tBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        EditProfile.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: yyyy-mm-dd: " + year + "-" + month + "-" + day);
+
+                String date = year + "-" + month + "-" + day;
+                tBirthday.setText(date);
+            }
+        };
     }
 
     /**

@@ -32,12 +32,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Intent change;
     private EditText dni, name, surname1, surname2, email, user, pass, answer,
-            pass2, phone, year, month, day, date;
+            pass2, phone, mDisplayDate;
     private ProgressBar pb;
 
     private static final String TAG = "RegisterActivity";
-    private TextView mDisplayDate;
-    private ImageButton mAddDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private class BackTaskDB extends android.os.AsyncTask<Void, Integer, Integer> {
@@ -55,10 +53,10 @@ public class RegisterActivity extends AppCompatActivity {
                     dni.getText().toString());
             if(!existe){
                 // Coge la fecha en string y la pasa a fecha
-                DateFormat format =new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+                DateFormat format =new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
                 Date birthday = null;
                 try {
-                    birthday = (Date) format.parse(mDisplayDate.getText().toString());
+                    birthday = new Date(format.parse(mDisplayDate.getText().toString()).getTime());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -112,7 +110,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Init
         change = new Intent(this, MainMenu.class);
-
         pb = findViewById(R.id.pb_register);
         user = findViewById(R.id.edt_user);
         email = findViewById(R.id.edt_email);
@@ -138,7 +135,9 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        // Datepicker
         mDisplayDate = findViewById(R.id.mostrar_fecha);
+        mDisplayDate.setKeyListener(null);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,6 +166,7 @@ public class RegisterActivity extends AppCompatActivity {
                 mDisplayDate.setText(date);
             }
         };
+        // End Datepicker
     }
 
     /**
@@ -194,8 +194,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Si todos los campos tienen contenido
         if(!dni.getText().toString().equals("") && !name.getText().toString().equals("") &&
                 !surname1.getText().toString().equals("") && !surname2.getText().toString().equals("") &&
-                !year.getText().toString().equals("") && !month.getText().toString().equals("") &&
-                !day.getText().toString().equals("") && !email.getText().toString().equals("") &&
+                !email.getText().toString().equals("") &&
                 !phone.getText().toString().equals("") && !pass.getText().toString().equals("") &&
                 !pass2.getText().toString().equals("") && !answer.getText().toString().equals("")){
             // Si pass y pass2 son iguales

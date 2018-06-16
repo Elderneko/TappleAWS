@@ -150,6 +150,7 @@
                     android:inputType="date"
                     android:layout_width="0dp"
                     android:layout_weight="2"
+                    android:focusable="false"
                     android:gravity="center_vertical"
                     android:layout_height="match_parent" />
 
