@@ -148,6 +148,7 @@ public class EditProfile extends AppCompatActivity {
         new Tarea().execute();
 
         btn = findViewById(R.id.btn_sendProfile);
+        btn.setEnabled(false);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

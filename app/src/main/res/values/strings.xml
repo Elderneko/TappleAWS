@@ -13,7 +13,7 @@
     <string name="title_activity_student_profile">StudentProfile</string>
 
     <string name="titlulo_pickers">Obtener fecha y hora</string>
-    <string name="formato_fecha">dd/mm/yyyy</string>
+    <string name="formato_fecha">yyyy-mm-dd</string>
     <string name="formato_hora">hh:mm</string>
 
     <string name="instructions">Place your fingertip on the Home button to verify your identity</string>

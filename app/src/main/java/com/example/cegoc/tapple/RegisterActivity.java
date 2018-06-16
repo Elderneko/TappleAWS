@@ -30,11 +30,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Intent change;
     private EditText dni, name, surname1, surname2, email, user, pass, answer,
-            pass2, phone, year, month, day, date;
+            pass2, phone;
     private ProgressBar pb;
+    private TextView mDisplayDate;
 
     private static final String TAG = "RegisterActivity";
-    private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private class BackTaskDB extends android.os.AsyncTask<Void, Integer, Integer> {
@@ -52,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
                     dni.getText().toString());
             if(!existe){
                 // Coge la fecha en string y la pasa a fecha
-                DateFormat format =new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+                DateFormat format =new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
                 Date birthday = null;
                 try {
                     birthday = new Date(format.parse(mDisplayDate.getText().toString()).getTime());
@@ -62,10 +62,10 @@ public class RegisterActivity extends AppCompatActivity {
                 //Creo el profesor con los datos del formulario
                 Teacher teacher = new Teacher(0,
                         Integer.valueOf(phone.getText().toString()),
-                        dni.getText().toString(),
-                        name.getText().toString(),
-                        surname1.getText().toString(),
-                        surname2.getText().toString(),
+                        dni.getText().toString().toUpperCase(),
+                        name.getText().toString().toUpperCase(),
+                        surname1.getText().toString().toUpperCase(),
+                        surname2.getText().toString().toUpperCase(),
                         email.getText().toString(),
                         user.getText().toString(),
                         pass.getText().toString(),
@@ -160,7 +160,7 @@ public class RegisterActivity extends AppCompatActivity {
                 month = month + 1;
                 Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
 
-                String date = month + "/" + day + "/" + year;
+                String date = year + "-" + month + "-" + day;
                 mDisplayDate.setText(date);
             }
         };
@@ -191,8 +191,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Si todos los campos tienen contenido
         if(!dni.getText().toString().equals("") && !name.getText().toString().equals("") &&
                 !surname1.getText().toString().equals("") && !surname2.getText().toString().equals("") &&
-                !year.getText().toString().equals("") && !month.getText().toString().equals("") &&
-                !day.getText().toString().equals("") && !email.getText().toString().equals("") &&
+                !email.getText().toString().equals("") &&
                 !phone.getText().toString().equals("") && !pass.getText().toString().equals("") &&
                 !pass2.getText().toString().equals("") && !answer.getText().toString().equals("")){
             // Si pass y pass2 son iguales

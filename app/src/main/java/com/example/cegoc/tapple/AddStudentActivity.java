@@ -145,7 +145,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 month = month + 1;
                 Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
 
-                String date = month + "/" + day + "/" + year;
+                String date = year + "-" + month + "-" + day;
                 mDisplayDate.setText(date);
             }
         };
