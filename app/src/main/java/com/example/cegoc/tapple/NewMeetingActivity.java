@@ -180,8 +180,8 @@ public class NewMeetingActivity extends AppCompatActivity {
         new BackTaskDB0().execute();
 
 
-        mAddDate = findViewById(R.id.adddate);
-        mAddDate.setOnClickListener(new View.OnClickListener() {
+        mDisplayDate = findViewById(R.id.mostrar_fecha);
+        mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
