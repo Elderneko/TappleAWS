@@ -18,7 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import cad.Student;
 import cad.Teacher;
@@ -27,11 +31,10 @@ public class AddStudentActivity extends AppCompatActivity {
 
     private Intent change;
     private EditText dni, name, surname1, surname2, email, address, city,
-            phone, year, month, day, date;
+            phone, mDisplayDate;
     private ProgressBar pb;
 
     private static final String TAG = "AddStudentActivity";
-    private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     /**
@@ -48,16 +51,14 @@ public class AddStudentActivity extends AppCompatActivity {
         @Override
         protected Integer doInBackground(Void... voids) {
             cad.TappleCAD t = new cad.TappleCAD();
-            int yearI, monthI, dayI;
-            yearI = Integer.valueOf(year.getText().toString());
-            monthI = Integer.valueOf(month.getText().toString());
-            dayI = Integer.valueOf(day.getText().toString());
-            // Creo un Calendario
-            Calendar cal = Calendar.getInstance();
-            // Lo inicializo con los valores del formulario
-            cal.set(yearI,monthI,dayI);
-            // Creo la fecha basada en ese calendario
-            Date birthday = new Date(cal.getTimeInMillis());
+            // Coge la fecha en string y la pasa a fecha
+            DateFormat format =new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
+            Date birthday = null;
+            try {
+                birthday = new Date(format.parse(mDisplayDate.getText().toString()).getTime());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             //Creo el estudiante con los datos del formulario
             Student student = new Student(0,
                     getTeacherID(),
@@ -104,7 +105,8 @@ public class AddStudentActivity extends AppCompatActivity {
         name = findViewById(R.id.edt_name);
         surname1 = findViewById(R.id.edt_surname1);
         surname2 = findViewById(R.id.edt_surname2);
-        //date = findViewById(R.id.mostrar_fecha);
+        address = findViewById(R.id.edt_address);
+        city = findViewById(R.id.edt_city);
         phone = findViewById(R.id.edt_phone);
 
         Button btn_register = findViewById(R.id.btn_register);
@@ -169,12 +171,14 @@ public class AddStudentActivity extends AppCompatActivity {
     private boolean validForm(){
         boolean retorno = false;
         // Si todos los campos tienen contenido
-        if(!dni.getText().toString().equals("") && !name.getText().toString().equals("") &&
-                !surname1.getText().toString().equals("") && !surname2.getText().toString().equals("") &&
-                !year.getText().toString().equals("") && !month.getText().toString().equals("") &&
-                !day.getText().toString().equals("") && !email.getText().toString().equals("")){
+        if(!dni.getText().toString().equals("") || !name.getText().toString().equals("") ||
+                !surname1.getText().toString().equals("") || !surname2.getText().toString().equals("") ||
+                !email.getText().toString().equals("") || !address.getText().toString().equals("")
+                || !city.getText().toString().equals("")){
             retorno=true;
         }
         return retorno;
     }
+
+    //ToDo Un metodo para validar los datos de cada EditText, que se meteran dentro del if de validForm()
 }

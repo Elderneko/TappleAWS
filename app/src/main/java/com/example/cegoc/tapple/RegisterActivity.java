@@ -202,6 +202,8 @@ public class RegisterActivity extends AppCompatActivity {
         return retorno;
     }
 
+    //ToDo Un metodo para validar los datos de cada EditText, que se meteran dentro del if de validForm()si quie
+
     /**
      * Lleva al formulario de login
      *

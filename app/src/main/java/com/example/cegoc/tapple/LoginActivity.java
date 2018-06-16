@@ -184,6 +184,11 @@ public class  LoginActivity extends AppCompatActivity {
         startActivity(new Intent(this, RegisterActivity.class));
     }
 
+    /**
+     * Lleva al olvidar contraseña
+     *
+     * @param v
+     */
     public void goForgetPass(View v){
         startActivity(new Intent(this, ForgetPass.class));
     }

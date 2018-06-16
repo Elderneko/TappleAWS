@@ -134,12 +134,13 @@ public class NewMeetingActivity extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ToDo Si ControlDeFormulario(), ejecuta tarea
+                //ToDo Si validForm(), ejecuta tarea
                 new BackTaskDB1().execute();
             }
         });
 
-        // Spinner list
+        // Spinner
+        // Este codigo hace funcionar el ComboBox o Spinner
         lista = new ArrayList<>();
         lista.add(new ListaSpinner("-- None --", -1));
         spin = findViewById(R.id.spn_student);
@@ -164,9 +165,12 @@ public class NewMeetingActivity extends AppCompatActivity {
 
         });
 		spin.setAdapter(adapter2);
+		// End Spinner
 
         Toast.makeText(NewMeetingActivity.this, "OnCreate",
                 Toast.LENGTH_SHORT).show();
+
+        // Se lanza la tarea asincrona
         new BackTaskDB0().execute();
 
     }
@@ -174,6 +178,8 @@ public class NewMeetingActivity extends AppCompatActivity {
     // ToDo Crear metodo para controlar formulario,
     // ToDo en el caso del spinner si el valor es -1 es que no hay nada
     // ToDo el metodo debe retornar true o false
+
+    //ToDo Un metodo para validar los datos de cada EditText, que se meteran dentro del if de validForm()
     /**
      * Devuelve la id del profesor almacenada en el shared preferences
      *
