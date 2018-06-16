@@ -84,7 +84,7 @@ public class EditProfile extends AppCompatActivity {
             if(controlFormulario()){
                 cad.TappleCAD t = new cad.TappleCAD();
                 // Coge la fecha en string y la pasa a fecha
-                DateFormat format =new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+                DateFormat format =new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
                 Date birthday = null;
                 try {
                     birthday = new Date(format.parse(tBirthday.getText().toString()).getTime());
