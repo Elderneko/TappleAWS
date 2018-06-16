@@ -30,9 +30,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Intent change;
     private EditText dni, name, surname1, surname2, email, user, pass, answer,
-            pass2, phone;
+            pass2, phone, mDisplayDate;
     private ProgressBar pb;
-    private TextView mDisplayDate;
 
     private static final String TAG = "RegisterActivity";
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -136,6 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         mDisplayDate = findViewById(R.id.mostrar_fecha);
+        mDisplayDate.setKeyListener(null);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

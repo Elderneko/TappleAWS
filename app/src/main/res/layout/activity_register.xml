@@ -92,9 +92,10 @@
             tools:layout_editor_absoluteX="15dp"
             tools:layout_editor_absoluteY="16dp" />
 
-        <TextView
+        <EditText
             android:id="@+id/mostrar_fecha"
             android:layout_width="match_parent"
+            android:focusable="false"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
