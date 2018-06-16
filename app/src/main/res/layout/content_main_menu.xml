@@ -7,6 +7,8 @@
     tools:context=".MainMenu"
     tools:showIn="@layout/app_bar_main_menu">
 
+
+
     <LinearLayout
         android:id="@+id/bienvenida"
         android:layout_width="match_parent"

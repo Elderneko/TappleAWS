@@ -13,6 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +27,9 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
     private String address, city;
     private ProgressBar pb;
     private int id_student;
-    private Button mapa;
+    private ImageView mapa;
+    private TextView tDNI, tName, tSurname1, tSurname2, tEmail, tBirthday, tPhone, tAddress, tCity;
+    private LinearLayout r;
 
     private class BackTaskDB extends android.os.AsyncTask<Void, Student, Student> {
 
@@ -33,6 +38,7 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
             super.onPreExecute();
             pb.setVisibility(View.VISIBLE);
             mapa.setEnabled(false);
+            r.setVisibility(View.INVISIBLE);
         }
 
         @Override
@@ -47,19 +53,30 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
         }
 
         @Override
-        protected void onPostExecute(Student s) {
-            super.onPostExecute(s);
+        protected void onPostExecute(Student t) {
+            super.onPostExecute(t);
             pb.setVisibility(View.GONE);
-            if(s != null){
-                // Se va a usar en el maps
-                city = s.getCity();
-                address = s.getAddress();
-                mapa.setEnabled(true);
-                //ToDo Muestra datos (a la espera del diseño)
-                Toast.makeText(StudentProfile.this, s.getAddress()+ "," + s.getCity(), Toast.LENGTH_LONG).show();
-                // Seria hacer solo los setText a los elementos del xml, no crearlo por codigo
+            mapa.setEnabled(true);
+            // Si no existe el usuario no se hace otra llamada a la BD
+            if(t != null){
+                // Variables para el maps
+                address = t.getAddress();
+                city = t.getCity();
+                // Se muestran todos los datos del estudiante
+                tDNI.setText(t.getDni());
+                tName.setText(t.getName());
+                tSurname1.setText(t.getSurname1());
+                tSurname2.setText(t.getSurname2());
+                tEmail.setText(t.getEmail());
+                tBirthday.setText(t.getBirthday().toString());
+                tPhone.setText(String.valueOf(t.getPhone()));
+                tAddress.setText(t.getAddress());
+                tCity.setText(t.getCity());
+
+                r.setVisibility(View.VISIBLE);
             } else {
-                //ToDo No existe
+                Toast.makeText(StudentProfile.this, "No se han podido mostrar datos",
+                        Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -67,6 +84,7 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
         protected void onCancelled() {
             super.onCancelled();
             pb.setVisibility(View.GONE);
+            mapa.setEnabled(true);
         }
     }
 
@@ -79,7 +97,18 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
         id_student = getIntent().getIntExtra("ID_STUDENT", 0);
         pb = findViewById(R.id.pb_profile_student);
 
-        mapa = findViewById(R.id.btn_map);
+        r = findViewById(R.id.contenedor_principal);
+        tDNI = findViewById(R.id.txt_profile_dni);
+        tName = findViewById(R.id.txt_profile_name);
+        tSurname1 = findViewById(R.id.txt_profile_surname1);
+        tSurname2 = findViewById(R.id.txt_profile_surname2);
+        tEmail = findViewById(R.id.txt_profile_email);
+        tBirthday = findViewById(R.id.txt_profile_birthday);
+        tPhone = findViewById(R.id.txt_profile_phone);
+        tAddress = findViewById(R.id.txt_profile_address);
+        tCity = findViewById(R.id.txt_profile_city);
+
+        mapa = findViewById(R.id.img_map);
         mapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +141,8 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
         navigationView.setNavigationItemSelectedListener(this);
 
         loadUsername();
+
+        // Se ejecuta la tarea asincrona
         new BackTaskDB().execute();
 
     }

@@ -38,7 +38,6 @@ public class NewMeetingActivity extends AppCompatActivity {
 
     private static final String TAG = "NewMeetingActivity";
     private TextView mDisplayDate;
-    private ImageButton mAddDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     /**
@@ -179,7 +178,7 @@ public class NewMeetingActivity extends AppCompatActivity {
         // Se lanza la tarea asincrona
         new BackTaskDB0().execute();
 
-
+        // Datepicker
         mDisplayDate = findViewById(R.id.mostrar_fecha);
         mDisplayDate.setKeyListener(null);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +209,7 @@ public class NewMeetingActivity extends AppCompatActivity {
                 mDisplayDate.setText(date);
             }
         };
+        // End Datepicker
 
     }
 

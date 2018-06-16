@@ -21,13 +21,17 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:visibility="invisible"/>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_marginBottom="60dp"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/contenedor_principal"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ProfileActivity"
         tools:showIn="@layout/app_bar_profile"
         android:orientation="vertical"
@@ -40,6 +44,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:layout_height="match_parent"
                 android:text="DNI:" />
 
@@ -47,7 +52,7 @@
                 android:id="@+id/txt_profile_dni"
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -59,6 +64,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:layout_height="match_parent"
             android:text="Name:" />
 
@@ -66,7 +72,7 @@
             android:id="@+id/txt_profile_name"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:layout_height="match_parent" />
 
     </LinearLayout>
@@ -78,6 +84,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:layout_height="match_parent"
             android:text="Surname1:" />
 
@@ -85,7 +92,7 @@
             android:id="@+id/txt_profile_surname1"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:layout_height="match_parent" />
 
     </LinearLayout>
@@ -97,6 +104,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:layout_height="match_parent"
                 android:text="Surname2:" />
 
@@ -104,7 +112,7 @@
                 android:id="@+id/txt_profile_surname2"
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -116,6 +124,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:layout_height="match_parent"
             android:text="Email:" />
 
@@ -123,7 +132,7 @@
             android:id="@+id/txt_profile_email"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:layout_height="match_parent" />
 
     </LinearLayout>
@@ -135,6 +144,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:layout_height="match_parent"
             android:text="Birthday:" />
 
@@ -142,7 +152,7 @@
             android:id="@+id/txt_profile_birthday"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:layout_height="match_parent" />
 
     </LinearLayout>
@@ -154,6 +164,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:layout_height="match_parent"
                 android:text="Phone:" />
 
@@ -161,11 +172,12 @@
                 android:id="@+id/txt_profile_phone"
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
 
 </LinearLayout>
+</ScrollView>
 </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

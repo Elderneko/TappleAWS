@@ -8,6 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_marginBottom="60dp"
         android:layout_height="match_parent">
 
         <ProgressBar
@@ -16,6 +17,10 @@
             android:layout_height="50dp"
             android:layout_centerInParent="true"
             android:visibility="invisible"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,5 +60,6 @@
             android:text="Send"/>
 
     </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

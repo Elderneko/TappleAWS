@@ -31,7 +31,6 @@ public class EditProfile extends AppCompatActivity {
     private ProgressBar pb;
     private EditText tName, tSurname1, tSurname2, tPhone, tEmail, tBirthday, tDNI;
 
-    private static final String TAG = "RegisterActivity";
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private class Tarea extends android.os.AsyncTask<Void, Teacher, Teacher> {
@@ -113,7 +112,7 @@ public class EditProfile extends AppCompatActivity {
                         "",
                         birthday
                         );
-                // Hacer un insert a la BD
+                // Hacer un update a la BD
                 t.editTeacher(teacher);
             } else{
                 Toast.makeText(EditProfile.this, "Error", Toast.LENGTH_SHORT).show();
@@ -129,7 +128,7 @@ public class EditProfile extends AppCompatActivity {
             btn.setEnabled(true);
 
             startActivity(new Intent(EditProfile.this, ProfileActivity.class));
-            finishAffinity();
+            finish();
         }
 
         @Override
@@ -154,10 +153,7 @@ public class EditProfile extends AppCompatActivity {
         tBirthday = findViewById(R.id.edt_profile_birthday);
         tPhone = findViewById(R.id.edt_profile_phone);
 
-
-
         btn = findViewById(R.id.btn_sendProfile);
-        btn.setEnabled(false);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -165,9 +161,10 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
-        // Se rellenan los edittext con datos
+        // Se rellenan los EditText con datos
         new Tarea().execute();
 
+        // Datepicker
         tBirthday.setKeyListener(null);
         tBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,12 +188,12 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d(TAG, "onDateSet: yyyy-mm-dd: " + year + "-" + month + "-" + day);
 
                 String date = year + "-" + month + "-" + day;
                 tBirthday.setText(date);
             }
         };
+        // End Datepicker
     }
 
     /**

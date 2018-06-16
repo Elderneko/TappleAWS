@@ -1,11 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".StudentEdit">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ProgressBar
+        android:id="@+id/pb_profile_student"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="60dp"
+        android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/contenedor_principal"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ProfileActivity"
+            tools:showIn="@layout/app_bar_profile"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="DNI:" />
+
+                <EditText
+                    android:id="@+id/txt_profile_dni"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="Name:" />
+
+                <EditText
+                    android:id="@+id/txt_profile_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="Surname1:" />
+
+                <EditText
+                    android:id="@+id/txt_profile_surname1"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="Surname2:" />
+
+                <EditText
+                    android:id="@+id/txt_profile_surname2"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="Email:" />
+
+                <EditText
+                    android:id="@+id/txt_profile_email"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:inputType="textEmailAddress"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="Birthday:" />
+
+                <EditText
+                    android:id="@+id/txt_profile_birthday"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:focusable="false"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="Phone:" />
+
+                <EditText
+                    android:id="@+id/txt_profile_phone"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:inputType="phone"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Address:" />
+
+                <EditText
+                    android:id="@+id/txt_profile_address"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="City:" />
+
+                <EditText
+                    android:id="@+id/txt_profile_city"
+                    android:layout_width="0dp"
+                    android:inputType="text"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_sendProfile"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Change"/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
