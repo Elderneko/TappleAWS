@@ -19,5 +19,32 @@
     <string name="instructions">Place your fingertip on the Home button to verify your identity</string>
     <string name="title_activity_student_location">Map</string>
     <string name="title_activity_meeting_list">MeetingList</string>
+    <string name="nCita">New appointment</string>
+    <string name="money">Money</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="add">Add</string>
+    <string name="sData">Student data</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="phone">Phone</string>
+    <string name="nPass">Enter new password</string>
+    <string name="password">Password</string>
+    <string name="rPass">Repeat password</string>
+    <string name="send">Send</string>
+    <string name="change">Change</string>
+    <string name="recPass">Enter your username and your security answer</string>
+    <string name="user">User</string>
+    <string name="sAnswer">Answer</string>
+    <string name="forPass">Forgotten password</string>
+    <string name="singUp">Sing up</string>
+    <string name="home">Home</string>
+    <string name="students">Students</string>
+    <string name="meetings">Meetings</string>
+    <string name="seetings">Seetings</string>
+    <string name="persData">Personal Data</string>
+    <string name="signData">Sign in data</string>
+    <string name="havePass">You have a password</string>
+    <string name="welcome">Welcome</string>
 
 </resources>

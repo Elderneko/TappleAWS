@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "RegisterActivity";
     private TextView mDisplayDate;
+    private ImageButton mAddDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private class BackTaskDB extends android.os.AsyncTask<Void, Integer, Integer> {
@@ -135,8 +138,8 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        mDisplayDate = findViewById(R.id.mostrar_fecha);
-        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+        mAddDate = findViewById(R.id.adddate);
+        mAddDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
@@ -158,9 +161,9 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
+                Log.d(TAG, "onDateSet: yyyy-mm-dd: " + year + "-" + month + "-" + day);
 
-                String date = month + "/" + day + "/" + year;
+                String date = year + "-" + month + "-" + day;
                 mDisplayDate.setText(date);
             }
         };
