@@ -2,11 +2,10 @@ package com.example.cegoc.tapple;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,23 +15,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.lang.reflect.Array;
-import java.text.SimpleDateFormat;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
-import java.util.Random;
 
 import cad.Meeting;
 import cad.Student;
 
-public class MeetingList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MeetDetails extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ProgressBar pb;
+    private int id_meet;
+    private LinearLayout r;
     private ArrayList<Student> listado;
+    private ProgressBar pb;
+    private TextView tStudent, tMoney, tIsPaid, tIsDone, tCreation, tMeet;
 
     private class ListaEstudiantes extends android.os.AsyncTask<Void, ArrayList<Student>, ArrayList<Student>> {
 
@@ -40,6 +41,7 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
         protected void onPreExecute() {
             super.onPreExecute();
             pb.setVisibility(View.VISIBLE);
+            r.setVisibility(View.INVISIBLE);
         }
 
         @Override
@@ -69,37 +71,43 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
         }
     }
 
-    private class BackTaskDB extends android.os.AsyncTask<Void, ArrayList<Meeting>, ArrayList<Meeting>> {
+    private class BackTaskDB extends android.os.AsyncTask<Void, Meeting, Meeting> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pb.setVisibility(View.VISIBLE);
         }
 
         @Override
-        protected ArrayList<Meeting> doInBackground(Void... voids) {
+        protected Meeting doInBackground(Void... voids) {
             cad.TappleCAD t = new cad.TappleCAD();
-            int id_teacher=getTeacherID();
             // Si la id es 0, no existe el usuario
-            if(id_teacher != 0){
-                return t.showAllMeetings(id_teacher);
+            if(id_meet != 0){
+                return t.showMeeting(id_meet);
             } else{
                 return null;
             }
         }
 
         @Override
-        protected void onPostExecute(ArrayList<Meeting> list) {
-            super.onPostExecute(list);
+        protected void onPostExecute(Meeting m) {
+            super.onPostExecute(m);
             pb.setVisibility(View.GONE);
-            // Si hay citas se crea la intefaz
-            if(list.size() != 0){
-                for(Meeting m : list){
-                    createViewMeeting(m, buscaEnArray(listado, m.getId_student()));
-                }
+            // Si no existe el usuario no se hace otra llamada a la BD
+            if(m != null){
+                // Se muestran todos los datos de la citaa
+                Log.i("AAA", "- "+ m.getId_student());
+                tStudent.setText(buscaEnArray(listado, m.getId_student()));
+                tMoney.setText(String.valueOf(m.getPayment()));
+                tIsPaid.setText(String.valueOf(m.isPaid()));
+                tIsDone.setText(String.valueOf(m.isDone()));
+                tCreation.setText(m.getCreation_date().toString());
+                tMeet.setText(m.getMeeting_date().toString());
+
+                r.setVisibility(View.VISIBLE);
             } else {
-                //ToDo No tiene citas
+                Toast.makeText(MeetDetails.this, "No se han podido mostrar datos",
+                        Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -113,32 +121,41 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meeting_list);
+        setContentView(R.layout.activity_meet_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.btn_new_meeting);
+        id_meet = getIntent().getIntExtra("ID_MEET", 0);
+
+        r = findViewById(R.id.linear_content);
+        pb = findViewById(R.id.pb_details_meet);
+        tStudent = findViewById(R.id.txt_student);
+        tMoney = findViewById(R.id.meet_money);
+        tIsPaid = findViewById(R.id.meet_paid);
+        tIsDone = findViewById(R.id.meet_done);
+        tCreation = findViewById(R.id.mostrar_datetime_creation);
+        tMeet = findViewById(R.id.mostrar_datetime_meet);
+
+
+        FloatingActionButton fab = findViewById(R.id.btn_edit_meeting);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MeetingList.this, NewMeetingActivity.class));
+            public void onClick(View view) {
+                // ToDo Ir a EditarCita
             }
         });
-        pb = findViewById(R.id.pb_meeting);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        loadUsername();
 
         // Tarea asincrona que cuando acaba llama a la de crear la interfaz
         new ListaEstudiantes().execute();
+
     }
 
     @Override
@@ -147,8 +164,7 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
-            startActivity(new Intent(MeetingList.this, MainMenu.class));
+            startActivity(new Intent(MeetDetails.this, MeetingList.class));
             finishAffinity();
         }
     }
@@ -179,49 +195,6 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
     }
 
     /**
-     * Crea una linea con el nombre y apellidos del alumno y su onclick
-     */
-    private void createViewMeeting(Meeting m, String nombre){
-        LinearLayout sv = findViewById(R.id.linear_meetings);
-        LinearLayout auxLinear = new LinearLayout(this);
-        auxLinear.setOrientation(LinearLayout.HORIZONTAL);
-        auxLinear.setLayoutParams(new LinearLayout.LayoutParams
-                (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        auxLinear.setPadding(toDp(10, auxLinear),toDp(10, auxLinear),
-                toDp(10, auxLinear),toDp(10, auxLinear));
-        TextView auxText = new TextView(this);
-        auxText.setGravity(Gravity.CENTER);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-        auxText.setText(sdf.format(m.getMeeting_date()) + " " + nombre);
-        auxLinear.setTag(m.getId_meet());
-        auxLinear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int id = (int) v.getTag();
-                //ToDo Quitar comentario cuando se cree la actividad de MeetingDetails
-                Intent i = new Intent(MeetingList.this, MeetDetails.class);
-                i.putExtra("ID_MEET", id);
-                startActivity(i);
-            }
-        });
-        auxLinear.addView(auxText);
-        sv.addView(auxLinear);
-    }
-
-    /**
-     * Carga el nombre del profesor que hemos guardado en el shared preferences
-     * en el menu lateral
-     */
-    private void loadUsername(){
-        NavigationView nv = findViewById(R.id.nav_view);
-        View headerView = nv.getHeaderView(0);
-        TextView tv = headerView.findViewById(R.id.txt_drawer_username);
-        String aux = getSharedPreferences("TEACHER_INFO", Context.MODE_PRIVATE).
-                getString("USER_TEACHER","");
-        tv.setText(aux);
-    }
-
-    /**
      * Devuelve la id del profesor almacenada en el shared preferences
      *
      * @return int id
@@ -229,17 +202,6 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
     private int getTeacherID(){
         return getSharedPreferences("TEACHER_INFO", Context.MODE_PRIVATE).
                 getInt("ID_TEACHER",0);
-    }
-
-    /**
-     * Este metodo pasa de pixeles a dp
-     *
-     * @param num numero de pixeles
-     * @return num transformado a dp
-     */
-    private int toDp(int num, LinearLayout lea){
-        float factor = lea.getResources().getDisplayMetrics().density;
-        return (int) factor*num;
     }
 
     /**

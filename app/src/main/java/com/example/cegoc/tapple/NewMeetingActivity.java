@@ -39,7 +39,7 @@ public class NewMeetingActivity extends AppCompatActivity {
     private Intent change;
     private ProgressBar pb_spin, pb;
     private int id_alumno_aux;
-    private Spinner spin, isPaid;
+    private Spinner spin, isPaid, isDone;
     private ArrayList<ListaSpinner> lista;
     private EditText money;
     private static final String TAG = "NewMeetingActivity";
@@ -113,7 +113,7 @@ public class NewMeetingActivity extends AppCompatActivity {
             cad.TappleCAD t = new cad.TappleCAD();
 
             // Coge la fecha y tiempo en string y la pasa a TimeStamp
-            DateFormat format =new SimpleDateFormat("yyyy-MM-dd hh:mm", Locale.UK);
+            DateFormat format =new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.UK);
             Timestamp fechaCreaccion = null;
             try {
                 fechaCreaccion = new Timestamp(format.parse(
@@ -130,7 +130,7 @@ public class NewMeetingActivity extends AppCompatActivity {
                     Integer.valueOf(money.getText().toString()),
                     new Timestamp(System.currentTimeMillis()),
                     fechaCreaccion,
-                    false,
+                    Boolean.valueOf(isDone.getSelectedItem().toString()),
                     Boolean.valueOf(isPaid.getSelectedItem().toString()));
             t.addMeeting(m, id_alumno_aux);
             return 1;
@@ -162,6 +162,7 @@ public class NewMeetingActivity extends AppCompatActivity {
         pb = findViewById(R.id.pb_add_meeting);
         money = findViewById(R.id.meet_money);
         isPaid = findViewById(R.id.meet_paid);
+        isDone = findViewById(R.id.meet_done);
 
         Button btn_add = findViewById(R.id.btn_add_meeting);
         btn_add.setOnClickListener(new View.OnClickListener() {
@@ -199,9 +200,6 @@ public class NewMeetingActivity extends AppCompatActivity {
         });
 		spin.setAdapter(adapter2);
 		// End Spinner
-
-        Toast.makeText(NewMeetingActivity.this, "OnCreate",
-                Toast.LENGTH_SHORT).show();
 
         // Se lanza la tarea asincrona
         new BackTaskDB0().execute();
@@ -272,7 +270,8 @@ public class NewMeetingActivity extends AppCompatActivity {
     }
 
     // ToDo Crear metodo para controlar formulario,
-    // ToDo en el caso del spinner si el valor es -1 es que no hay nada
+    // ToDo en el caso del spinner de alumnos si el valor es -1 es que no hay nada
+    // ToDo en los otros spinner si el valor es "-- None --" se retorna false
     // ToDo el metodo debe retornar true o false
 
     //ToDo Un metodo para validar los datos de cada EditText, que se meteran dentro del if de validForm()

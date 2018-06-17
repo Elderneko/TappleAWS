@@ -80,7 +80,11 @@
         <activity android:name=".ForgetPass" />
         <activity android:name=".ChangePass" />
         <activity android:name=".EditProfile" />
-        <activity android:name=".StudentEdit"></activity>
+        <activity android:name=".StudentEdit" />
+        <activity
+            android:name=".MeetDetails"
+            android:label="@string/title_activity_meet_details"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

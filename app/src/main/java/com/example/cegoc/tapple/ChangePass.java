@@ -69,6 +69,7 @@ public class ChangePass extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //ToDo If controlFormulario
                 new BackTaskDB().execute();
             }
         });

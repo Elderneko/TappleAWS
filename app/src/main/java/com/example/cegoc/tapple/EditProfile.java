@@ -128,7 +128,7 @@ public class EditProfile extends AppCompatActivity {
             btn.setEnabled(true);
 
             startActivity(new Intent(EditProfile.this, ProfileActivity.class));
-            finish();
+            finishAffinity();
         }
 
         @Override
@@ -157,6 +157,7 @@ public class EditProfile extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // ToDo Control formulario
                 new BackTaskDB().execute();
             }
         });

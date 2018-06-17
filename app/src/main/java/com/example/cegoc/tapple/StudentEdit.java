@@ -148,7 +148,7 @@ public class StudentEdit extends AppCompatActivity {
             Intent i = new Intent(StudentEdit.this, StudentProfile.class);
             i.putExtra("ID_STUDENT", id_student);
             startActivity(i);
-            finish();
+            finishAffinity();
         }
 
         @Override
@@ -181,6 +181,7 @@ public class StudentEdit extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //ToDo Control de formulario
                 new BackTaskDB2().execute();
             }
         });

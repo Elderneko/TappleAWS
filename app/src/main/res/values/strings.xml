@@ -47,15 +47,19 @@
     <string name="havePass">You have a password</string>
     <string name="welcome">Welcome</string>
 
-    <string-array name="isPaid_Spinner">
-        <item></item>
-        <item>true</item>
+    <string-array name="boolean_Spinner">
+        <item>-- None --</item>
         <item>false</item>
+        <item>true</item>
     </string-array>
+<<<<<<< HEAD
     <string name="bday">Birthday</string>
     <string name="profile">Profile</string>
     <string name="address">Address</string>
     <string name="city">City</string>
     <string name="showOnMaps">Show on Maps</string>
+=======
+    <string name="title_activity_meet_details">MeetDetails</string>
+>>>>>>> 22c2d50409b4fe83d3a2db6f60ade72e64d835ba
 
 </resources>

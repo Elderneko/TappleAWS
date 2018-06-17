@@ -64,13 +64,13 @@ public class AddStudentActivity extends AppCompatActivity {
             Student student = new Student(0,
                     getTeacherID(),
                     Integer.valueOf(phone.getText().toString()),
-                    dni.getText().toString(),
-                    name.getText().toString(),
-                    surname1.getText().toString(),
-                    surname2.getText().toString(),
+                    dni.getText().toString().toUpperCase(),
+                    name.getText().toString().toUpperCase(),
+                    surname1.getText().toString().toUpperCase(),
+                    surname2.getText().toString().toUpperCase(),
                     email.getText().toString(),
-                    address.getText().toString(),
-                    city.getText().toString(),
+                    address.getText().toString().toUpperCase(),
+                    city.getText().toString().toUpperCase(),
                     birthday);
             // Hacer un insert a la BD
             t.addStudent(student);
