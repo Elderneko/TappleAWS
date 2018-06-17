@@ -52,5 +52,6 @@
         <item>false</item>
         <item>true</item>
     </string-array>
+    <string name="title_activity_meet_details">MeetDetails</string>
 
 </resources>
