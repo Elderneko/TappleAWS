@@ -200,9 +200,6 @@ public class NewMeetingActivity extends AppCompatActivity {
 		spin.setAdapter(adapter2);
 		// End Spinner
 
-        Toast.makeText(NewMeetingActivity.this, "OnCreate",
-                Toast.LENGTH_SHORT).show();
-
         // Se lanza la tarea asincrona
         new BackTaskDB0().execute();
 

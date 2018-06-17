@@ -21,6 +21,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -30,6 +32,42 @@ import cad.Student;
 public class MeetingList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ProgressBar pb;
+    private ArrayList<Student> listado;
+
+    private class ListaEstudiantes extends android.os.AsyncTask<Void, ArrayList<Student>, ArrayList<Student>> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pb.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected ArrayList<Student> doInBackground(Void... voids) {
+            cad.TappleCAD t = new cad.TappleCAD();
+            int id_teacher=getTeacherID();
+            // Si la id es 0, no existe el usuario
+            if(id_teacher != 0){
+                listado = t.showStudents(id_teacher);
+                return null;
+            } else{
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Student> list) {
+            super.onPostExecute(list);
+            // Cuando acaba este hilo se ejecuta el que carga la interfaz
+            new BackTaskDB().execute();
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+            pb.setVisibility(View.GONE);
+        }
+    }
 
     private class BackTaskDB extends android.os.AsyncTask<Void, ArrayList<Meeting>, ArrayList<Meeting>> {
 
@@ -55,13 +93,13 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
         protected void onPostExecute(ArrayList<Meeting> list) {
             super.onPostExecute(list);
             pb.setVisibility(View.GONE);
-            // Si no existe el usuario no se hace otra llamada a la BD
+            // Si hay citas se crea la intefaz
             if(list.size() != 0){
                 for(Meeting m : list){
-                    createViewMeeting(m);
+                    createViewMeeting(m, buscaEnArray(listado, m.getId_student()));
                 }
             } else {
-                //ToDo No tiene alumnos
+                //ToDo No tiene citas
             }
         }
 
@@ -99,7 +137,8 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
 
         loadUsername();
 
-        new BackTaskDB().execute();
+        // Tarea asincrona que cuando acaba llama a la de crear la interfaz
+        new ListaEstudiantes().execute();
     }
 
     @Override
@@ -142,7 +181,7 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
     /**
      * Crea una linea con el nombre y apellidos del alumno y su onclick
      */
-    private void createViewMeeting(Meeting m){
+    private void createViewMeeting(Meeting m, String nombre){
         LinearLayout sv = findViewById(R.id.linear_meetings);
         LinearLayout auxLinear = new LinearLayout(this);
         auxLinear.setOrientation(LinearLayout.HORIZONTAL);
@@ -152,8 +191,8 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
                 toDp(10, auxLinear),toDp(10, auxLinear));
         TextView auxText = new TextView(this);
         auxText.setGravity(Gravity.CENTER);
-        //ToDo Solo la fecha de la cita o tambien el nombre del alumno?
-        auxText.setText(m.getMeeting_date() + " " );
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+        auxText.setText(sdf.format(m.getMeeting_date()) + " " + nombre);
         auxLinear.setTag(m.getId_meet());
         auxLinear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,5 +240,21 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
     private int toDp(int num, LinearLayout lea){
         float factor = lea.getResources().getDisplayMetrics().density;
         return (int) factor*num;
+    }
+
+    /**
+     * Metodo que busca en un array una id, y devuelve el nombre y apellidos
+     *
+     * @param lista ArrayList de alumnos en el que vamos a buscar
+     * @param id id buscada
+     * @return nombre y apellido1 concatenados
+     */
+    private String buscaEnArray(ArrayList<Student> lista, int id){
+        for (int i=0; i<lista.size(); i++){
+            if(lista.get(i).getId_student() == id){
+                return lista.get(i).getName() + " " + lista.get(i).getSurname1();
+            }
+        }
+        return null;
     }
 }

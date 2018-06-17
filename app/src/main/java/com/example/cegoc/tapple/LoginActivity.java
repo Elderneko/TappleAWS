@@ -193,7 +193,7 @@ public class  LoginActivity extends AppCompatActivity {
     public void goForgetPass(View v){
         startActivity(new Intent(this, ForgetPass.class));
     }
-    
+
     //ToDo Control de formulario
 
 //    // Declare a string variable for the key we’re going to use in our fingerprint authentication
