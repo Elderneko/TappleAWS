@@ -113,7 +113,7 @@ public class NewMeetingActivity extends AppCompatActivity {
             cad.TappleCAD t = new cad.TappleCAD();
 
             // Coge la fecha y tiempo en string y la pasa a TimeStamp
-            DateFormat format =new SimpleDateFormat("yyyy-MM-dd hh:mm", Locale.UK);
+            DateFormat format =new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.UK);
             Timestamp fechaCreaccion = null;
             try {
                 fechaCreaccion = new Timestamp(format.parse(
