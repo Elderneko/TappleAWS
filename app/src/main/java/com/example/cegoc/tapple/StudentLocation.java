@@ -1,8 +1,11 @@
 package com.example.cegoc.tapple;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -39,6 +42,11 @@ public class StudentLocation extends FragmentActivity implements OnMapReadyCallb
         ", " + getIntent().getStringExtra("CITY");
 
         new BackTask().execute();
+
+        // ToDo Traducciones
+        creaAlerta("Atencion!", "Espere unos segundos. " +
+                "Si no carga el mapa vuelva atras y entre de nuevo." +
+                "Si esto no funciona es posible que GoogleMaps no sea capaz de encontrar el lugar.").show();
     }
 
 
@@ -135,6 +143,25 @@ public class StudentLocation extends FragmentActivity implements OnMapReadyCallb
             e.printStackTrace();
         }
         return response;
+    }
+
+    /**
+     * Metodo auxiliar para crear DialogAlert en pantalla
+     *
+     * @param titulo  titulo de la ventana
+     * @param mensaje mensaje que queremos mostrar
+     * @return un dialogo, hay que usar .show() para que se muestre en pantalla
+     */
+    private Dialog creaAlerta(String titulo, String mensaje) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(StudentLocation.this);
+        builder.setMessage(mensaje).setTitle(titulo);
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        return builder.create();
     }
 
 }
