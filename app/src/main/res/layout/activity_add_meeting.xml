@@ -28,8 +28,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="New Meeting"
-                android:textSize="25sp" />
+                android:contentDescription="@string/nCita"
+                android:text="@string/nCita"
+                android:textAlignment="textStart"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
@@ -60,9 +64,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="5dp"
+                android:contentDescription="@string/money"
                 android:ems="10"
-                android:hint="Money"
+                android:hint="@string/money"
                 android:inputType="number"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -71,6 +78,7 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="5dp"
                 android:text="Is Paid"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 tools:layout_editor_absoluteX="15dp"
                 tools:layout_editor_absoluteY="16dp" />
 
@@ -87,7 +95,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="5dp"
-                android:text="Date"
+                android:contentDescription="@string/date"
+                android:text="@string/date"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="15dp"
                 tools:layout_editor_absoluteY="16dp" />
 
@@ -107,7 +118,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="5dp"
-                android:text="Time"
+                android:contentDescription="@string/time"
+                android:text="@string/time"
+                android:textAlignment="viewStart"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 tools:layout_editor_absoluteX="15dp"
                 tools:layout_editor_absoluteY="16dp" />
 
@@ -126,12 +140,13 @@
 
             <Button
                 android:id="@+id/btn_add_meeting"
-                android:background="@color/colorPrimary"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
-                android:text="Add" />
+                android:background="@color/colorPrimary"
+                android:contentDescription="@string/add"
+                android:text="@string/add" />
 
         </LinearLayout>
 </ScrollView>

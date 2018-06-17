@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tapple</string>
+    <string name="title_activity_main_menu">Casa</string>
+    <string name="title_activity_profile">Perfil</string>
+    <string name="title_activity_students">Alumnos</string>
+    <string name="title_activity_register">Rexistro</string>
+    <string name="welcome">Benvidos</string>
+    <string name="havePass">Tes un contrasinal</string>
+    <string name="signData">Información de rexistro</string>
+    <string name="persData">Información persoal</string>
+    <string name="seetings">Axustes</string>
+    <string name="meetings">Mozo</string>
+    <string name="students">Alumnos</string>
+    <string name="home">Casa</string>
+    <string name="singUp">Rexistro</string>
+    <string name="forPass">Contrasinal esquecido</string>
+    <string name="sAnswer">Resposta</string>
+    <string name="user">Usuario</string>
+    <string name="recPass">Introduce a resposta de usuario e seguridade</string>
+    <string name="change">Cambio</string>
+    <string name="send">Enviar</string>
+    <string name="rPass">Repetir o ocontraseña</string>
+    <string name="password">Contrasinal</string>
+    <string name="nPass">Introduce novo contrasinal</string>
+    <string name="phone">Teléfono</string>
+    <string name="surname">Apelido</string>
+    <string name="name">Nome</string>
+    <string name="sData">Datos do alumno</string>
+    <string name="add">Engadir</string>
+    <string name="time">Hora</string>
+    <string name="date">Data</string>
+    <string name="money">Diñeiro</string>
+    <string name="nCita">Nova cita</string>
+    <string name="title_activity_student_location">Mapa</string>
+    <string name="action_settings">Axustes</string>
+    <string name="title_activity_student_profile">Perfil do alumno</string>
+    <string name="showOnMaps">Mostrar en Maps</string>
+    <string name="city">Cidade</string>
+    <string name="address">Enderezo</string>
+    <string name="profile">Perfil</string>
+    <string name="title_activity_meeting_list">Lista de citas</string>
+    <string name="bday">Aniversario</string>
+</resources>

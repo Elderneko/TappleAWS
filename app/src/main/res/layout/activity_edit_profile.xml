@@ -44,9 +44,11 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:text="DNI:" />
+                    android:layout_weight="1"
+                    android:contentDescription="DNI"
+                    android:text="DNI:"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edt_profile_dni"
@@ -64,9 +66,11 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:text="Name:" />
+                    android:layout_weight="1"
+                    android:contentDescription="@string/name"
+                    android:text="@string/name"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edt_profile_name"
@@ -84,9 +88,11 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:text="Surname1:" />
+                    android:layout_weight="1"
+                    android:contentDescription="@string/surname"
+                    android:text="@string/surname"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edt_profile_surname1"
@@ -104,9 +110,11 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:text="Surname2:" />
+                    android:layout_weight="1"
+                    android:contentDescription="@string/surname"
+                    android:text="@string/surname"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edt_profile_surname2"
@@ -124,9 +132,11 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:text="Email:" />
+                    android:layout_weight="1"
+                    android:contentDescription="EMAIL"
+                    android:text="Email:"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edt_profile_email"
@@ -144,12 +154,15 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:text="Birthday:" />
+                    android:layout_weight="1"
+                    android:contentDescription="@string/bday"
+                    android:text="@string/bday"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edt_profile_birthday"
+                    android:hint="@string/formato_fecha"
                     android:inputType="date"
                     android:layout_width="0dp"
                     android:layout_weight="2"
@@ -165,16 +178,17 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:text="Phone:" />
+                    android:layout_weight="1"
+                    android:contentDescription="@string/phone"
+                    android:text="@string/phone"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edt_profile_phone"
                     android:layout_width="0dp"
                     android:layout_weight="2"
-                    android:hint="@string/formato_fecha"
-                    android:inputType="date"
+                    android:inputType="number"
                     android:gravity="center_vertical"
                     android:layout_height="match_parent" />
 
@@ -186,7 +200,8 @@
                 android:layout_gravity="center"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Change"/>
+                android:text="@string/change"
+                android:contentDescription="@string/change"/>
 
         </LinearLayout>
         </ScrollView>

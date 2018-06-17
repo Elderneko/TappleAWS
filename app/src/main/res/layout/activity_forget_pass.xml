@@ -32,18 +32,22 @@
         android:padding="20dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Introduce tu usuario y tu respuesta de seguridad." />
+            android:text="@string/recPass"
+            android:contentDescription="@string/recPass"
+            android:textAlignment="textStart"
+            android:textStyle="bold" />
 
         <EditText
-            android:inputType="text"
             android:id="@+id/edt_user"
-            android:layout_marginBottom="10dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="User" />
+            android:layout_marginBottom="10dp"
+            android:hint="@string/user"
+            android:contentDescription="@string/user"
+            android:inputType="text" />
 
         <EditText
             android:inputType="textPassword"
@@ -51,13 +55,15 @@
             android:layout_width="200dp"
             android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
-            android:hint="Answer"/>
+            android:hint="@string/sAnswer"
+            android:contentDescription="@string/sAnswer"/>
 
         <Button
             android:id="@+id/btn_send"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Send"/>
+            android:text="@string/send"
+            android:contentDescription="@string/send"/>
 
     </LinearLayout>
         </ScrollView>

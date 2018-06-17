@@ -56,7 +56,8 @@
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="User"
+                    android:hint="@string/user"
+                    android:contentDescription="@string/user"
                     android:inputType="text"
                     tools:layout_editor_absoluteX="68dp"
                     tools:layout_editor_absoluteY="85dp" />
@@ -81,7 +82,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Password"
+                    android:hint="@string/password"
+                    android:contentDescription="@string/password"
                     android:inputType="textPassword"
                     tools:layout_editor_absoluteX="68dp"
                     tools:layout_editor_absoluteY="85dp" />
@@ -94,7 +96,8 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:background="@color/colorPrimary"
-                android:text="Login" />
+                android:text="Login"
+                android:contentDescription="Login"/>
 
             <TextView
                 android:id="@+id/txt_forget"
@@ -103,7 +106,8 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:onClick="goForgetPass"
-                android:text="Forget password? Click here"
+                android:text="@string/forPass"
+                android:contentDescription="@string/forPass"
                 android:textColor="#2a4779"
                 android:textStyle="italic" />
 
@@ -113,7 +117,8 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:onClick="goRegister"
-                android:text="No account? Click here"
+                android:text="@string/singUp"
+                android:contentDescription="@string/singUp"
                 android:textColor="#2a4779"
                 android:textStyle="italic" />
 

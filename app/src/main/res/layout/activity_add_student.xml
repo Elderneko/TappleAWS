@@ -29,7 +29,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Student Data"
+                android:text="@string/sData"
+                android:contentDescription="@string/sData"
                 android:textSize="25sp" />
 
             <View
@@ -55,7 +56,8 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:hint="Name"
+                android:hint="@string/name"
+                android:contentDescription="@string/name"
                 android:inputType="text"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -66,7 +68,8 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:hint="Surname"
+                android:hint="@string/surname"
+                android:contentDescription="@string/surname"
                 android:inputType="text"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -77,7 +80,8 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:hint="Surname"
+                android:hint="@string/surname"
+                android:contentDescription="@string/surname"
                 android:inputType="text"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -87,7 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginBottom="2dp"
-                android:text="Birthday:"
+                android:text="@string/bday"
+                android:contentDescription="@string/bday"
                 tools:layout_editor_absoluteX="15dp"
                 tools:layout_editor_absoluteY="16dp" />
 
@@ -118,7 +123,7 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:hint="Phone"
+                android:hint="@string/phone"
                 android:inputType="phone"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -129,7 +134,8 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:hint="Address"
+                android:hint="@string/address"
+                android:contentDescription="@string/address"
                 android:inputType="text"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -140,7 +146,8 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:hint="City"
+                android:hint="@string/city"
+                android:contentDescription="@string/city"
                 android:inputType="text"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -152,7 +159,8 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
-                android:text="Add" />
+                android:text="@string/add"
+                android:contentDescription="@string/add"/>
 
         </LinearLayout>
 </ScrollView>

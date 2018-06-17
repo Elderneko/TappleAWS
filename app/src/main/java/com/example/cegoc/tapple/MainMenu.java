@@ -106,11 +106,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         name.setText(aux);
     }
 
-    public void GoToProfile(View view)
-    {
-        startActivity(new Intent(this, ProfileActivity.class));
-        finishAffinity();
-    }
+
     public void GoToStudents(View view)
     {
         startActivity(new Intent(this, StudentsActivity.class));

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tapple</string>
+    <string name="title_activity_main_menu">Hastapen</string>
+    <string name="title_activity_profile">Profila</string>
+    <string name="title_activity_students">Ikasleak</string>
+    <string name="title_activity_register">Matrikula</string>
+    <string name="welcome">Ongietorri</string>
+    <string name="havePass">Pasahitza duzu</string>
+    <string name="signData">Erregistroaren informazioa</string>
+    <string name="persData">Informazio pertsonala</string>
+    <string name="seetings">Ezarpenak</string>
+    <string name="meetings">Datazio</string>
+    <string name="students">Ikasleak</string>
+    <string name="home">Hastapen</string>
+    <string name="singUp">Matrikula</string>
+    <string name="forPass">Pasahitza ahaztuta</string>
+    <string name="sAnswer">Erantzun</string>
+    <string name="user">Erabiltzaile</string>
+    <string name="recPass">Sartu erabiltzailea eta segurtasunaren erantzuna</string>
+    <string name="change">Aldaketaren</string>
+    <string name="send">Bidali</string>
+    <string name="rPass">Errepikatu pasahitza</string>
+    <string name="password">Pasahitza</string>
+    <string name="nPass">Sartu pasahitz berria</string>
+    <string name="phone">Telefono</string>
+    <string name="surname">Abizenak</string>
+    <string name="name">Izen</string>
+    <string name="sData">Ikasleen datuak</string>
+    <string name="add">Gehitu</string>
+    <string name="time">Denbora</string>
+    <string name="date">Data</string>
+    <string name="money">Dirua</string>
+    <string name="nCita">Hitzordu berria</string>
+    <string name="title_activity_student_location">Mapa</string>
+    <string name="action_settings">Ezarpenak</string>
+    <string name="title_activity_student_profile">Ikasleen profila</string>
+    <string name="showOnMaps">"Erakutsi mapetan "</string>
+    <string name="city">City</string>
+    <string name="address">Helbidea</string>
+    <string name="profile">Profila</string>
+    <string name="title_activity_meeting_list">Izendapenen zerrenda</string>
+    <string name="bday">Urtebetetze</string>
+</resources>

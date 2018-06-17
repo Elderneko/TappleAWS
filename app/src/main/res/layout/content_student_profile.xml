@@ -26,7 +26,18 @@
         tools:context=".ProfileActivity"
         tools:showIn="@layout/app_bar_profile"
         android:orientation="vertical"
+
         android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sData"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,16 +45,19 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="DNI:" />
+                android:text="DNI:"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_profile_dni"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:textColor="#000000"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -54,15 +68,18 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="Name:" />
+                android:text="@string/name"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_profile_name"
                 android:layout_width="0dp"
                 android:layout_weight="2"
+                android:textColor="#000000"
                 android:gravity="center"
                 android:layout_height="match_parent" />
 
@@ -74,16 +91,19 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="Surname1:" />
+                android:text="@string/surname"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_profile_surname1"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:textColor="#000000"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -94,14 +114,17 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="Surname2:" />
+                android:text="@string/surname"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_profile_surname2"
                 android:layout_width="0dp"
+                android:textColor="#000000"
                 android:layout_weight="2"
                 android:gravity="center"
                 android:layout_height="match_parent" />
@@ -114,15 +137,18 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="Email:" />
+                android:text="Email:"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_profile_email"
                 android:layout_width="0dp"
                 android:layout_weight="2"
+                android:textColor="#000000"
                 android:gravity="center"
                 android:layout_height="match_parent" />
 
@@ -134,15 +160,18 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="Birthday:" />
+                android:text="@string/bday"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_profile_birthday"
                 android:layout_width="0dp"
                 android:layout_weight="2"
+                android:textColor="#000000"
                 android:gravity="center"
                 android:layout_height="match_parent" />
 
@@ -154,15 +183,18 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="Phone:" />
+                android:text="@string/phone"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_profile_phone"
                 android:layout_width="0dp"
                 android:layout_weight="2"
+                android:textColor="#000000"
                 android:gravity="center"
                 android:layout_height="match_parent" />
 
@@ -174,15 +206,18 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:text="Address:" />
+                android:text="@string/address"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_profile_address"
                 android:layout_width="0dp"
                 android:layout_weight="2"
+                android:textColor="#000000"
                 android:gravity="center"
                 android:layout_height="match_parent" />
 
@@ -194,15 +229,18 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="City:" />
+                android:text="@string/city"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_profile_city"
                 android:layout_width="0dp"
                 android:layout_weight="2"
+                android:textColor="#000000"
                 android:gravity="center"
                 android:layout_height="match_parent" />
 
@@ -216,8 +254,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:gravity="center"
+                android:textColor="#000000"
                 android:layout_height="match_parent"
-                android:text="Ver en Mapa:" />
+                android:text="@string/showOnMaps" />
 
             <ImageView
                 android:id="@+id/img_map"

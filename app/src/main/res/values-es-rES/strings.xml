@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tapple</string>
+    <string name="title_activity_main_menu">Inicio</string>
+    <string name="title_activity_profile">Perfil</string>
+    <string name="title_activity_students">Estudiantes</string>
+    <string name="title_activity_register">Registro</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="title_activity_student_profile">Perfil del estudiante</string>
+    <string name="title_activity_student_location">Mapa</string>
+    <string name="nCita">Nueva cita</string>
+    <string name="money">Dinero</string>
+    <string name="date">Fecha</string>
+    <string name="time">Hora</string>
+    <string name="add">Añadir</string>
+    <string name="sData">Datos del estudiante</string>
+    <string name="name">Nombre</string>
+    <string name="surname">Apellido</string>
+    <string name="phone">Teléfono</string>
+    <string name="nPass">Introducir nueva contraseña</string>
+    <string name="password">Contraseña</string>
+    <string name="rPass">Repetir contraseña</string>
+    <string name="send">Enviar</string>
+    <string name="change">Cambiar</string>
+    <string name="recPass">Introducir usuario y respuesta de seguridad</string>
+    <string name="user">Usuario</string>
+    <string name="sAnswer">Respuesta</string>
+    <string name="forPass">Contraseña olvidada</string>
+    <string name="singUp">Registro</string>
+    <string name="home">Inicio</string>
+    <string name="students">Estudiantes</string>
+    <string name="meetings">Citas</string>
+    <string name="seetings">Ajustes</string>
+    <string name="persData">Datos personales</string>
+    <string name="signData">Datos de registro</string>
+    <string name="havePass">Tienes contraseña</string>
+    <string name="welcome">Bienvenid@</string>
+    <string name="showOnMaps">Mostrar en Maps</string>
+    <string name="city">Ciudad</string>
+    <string name="address">Dirección</string>
+    <string name="profile">Perfil</string>
+    <string name="title_activity_meeting_list">Lista de citas</string>
+    <string name="bday">Cumpleaños</string>
+</resources>

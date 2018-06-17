@@ -52,5 +52,10 @@
         <item>true</item>
         <item>false</item>
     </string-array>
+    <string name="bday">Birthday</string>
+    <string name="profile">Profile</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="showOnMaps">Show on Maps</string>
 
 </resources>

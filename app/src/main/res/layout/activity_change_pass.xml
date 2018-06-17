@@ -33,7 +33,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="Introduce tu nueva contraseña" />
+                android:text="@string/nPass"
+                android:contentDescription="@string/nPass"
+                android:textAlignment="center"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:inputType="textPassword"
@@ -41,7 +46,8 @@
                 android:layout_marginBottom="10dp"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:hint="Password" />
+                android:hint="@string/password"
+                android:contentDescription="@string/password"/>
 
             <EditText
                 android:inputType="textPassword"
@@ -49,13 +55,15 @@
                 android:layout_width="200dp"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content"
-                android:hint="Repeat Password"/>
+                android:hint="@string/rPass"
+                android:contentDescription="@string/rPass"/>
 
             <Button
                 android:id="@+id/btn_change_pw"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Send"/>
+                android:text="@string/send"
+                android:contentDescription="@string/send"/>
 
         </LinearLayout>
 </ScrollView>

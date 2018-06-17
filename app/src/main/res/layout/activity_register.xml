@@ -31,7 +31,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Personal Data"
+                android:text="@string/persData"
+                android:contentDescription="@string/persData"
                 android:textSize="25sp"/>
 
             <View
@@ -47,6 +48,7 @@
                 android:ems="10"
                 android:inputType="text"
                 android:hint="DNI"
+                android:contentDescription="DNI"
                 android:layout_marginBottom="5dp"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -58,7 +60,8 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
-                android:hint="Name"
+                android:hint="@string/name"
+                android:contentDescription="@string/name"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -69,7 +72,8 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
-                android:hint="Surname"
+                android:hint="@string/surname"
+                android:contentDescription="@string/surname"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -80,7 +84,8 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
-                android:hint="Surname"
+                android:hint="@string/surname"
+                android:contentDescription="@string/surname"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -89,7 +94,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="5dp"
-                android:text="Birthday"
+                android:text="@string/bday"
+                android:contentDescription="@string/bday"
                 tools:layout_editor_absoluteX="15dp"
                 tools:layout_editor_absoluteY="16dp" />
 
@@ -111,6 +117,7 @@
                 android:layout_marginBottom="10dp"
                 android:inputType="textEmailAddress"
                 android:hint="e-Mail"
+                android:contentDescription="MAIL"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -121,14 +128,16 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="phone"
-                android:hint="phone"
+                android:hint="@string/phone"
+                android:contentDescription="@string/phone"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Sign in Data"
+                android:text="@string/signData"
+                android:contentDescription="@string/signData"
                 android:textSize="25sp"/>
 
             <View
@@ -141,7 +150,8 @@
                 android:id="@+id/txt_user"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="User"
+                android:text="@string/user"
+                android:contentDescription="@string/user"
                 android:layout_marginBottom="10dp"
                 tools:layout_editor_absoluteX="15dp"
                 tools:layout_editor_absoluteY="16dp" />
@@ -153,7 +163,8 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
-                android:hint="User"
+                android:hint="@string/user"
+                android:contentDescription="@string/user"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -161,7 +172,8 @@
                 android:id="@+id/txt_pass"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Password"
+                android:text="@string/password"
+                android:contentDescription="@string/password"
                 android:layout_marginBottom="5dp"
                 tools:layout_editor_absoluteX="15dp"
                 tools:layout_editor_absoluteY="16dp" />
@@ -173,7 +185,8 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="textPassword"
-                android:hint="Password"
+                android:hint="@string/password"
+                android:contentDescription="@string/password"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -184,7 +197,8 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="textPassword"
-                android:hint="Repeat password"
+                android:hint="@string/rPass"
+                android:contentDescription="@string/rPass"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -195,7 +209,8 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
-                android:hint="Security Answer"
+                android:hint="@string/sAnswer"
+                android:contentDescription="@string/sAnswer"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -204,7 +219,8 @@
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:background="@color/colorPrimary"
-                android:text="Register"
+                android:text="@string/singUp"
+                android:contentDescription="@string/singUp"
                 android:layout_marginBottom="20dp"
                 android:layout_gravity="center" />
 
@@ -214,7 +230,8 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:onClick="goRegister"
-                android:text="Got an account? Click here"
+                android:text="@string/havePass"
+                android:contentDescription="@string/havePass"
                 android:textColor="#2a4779"
                 android:textStyle="italic" />
 
