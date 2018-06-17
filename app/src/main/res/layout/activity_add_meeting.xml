@@ -44,68 +44,142 @@
                 android:layout_gravity="center"
                 android:visibility="gone" />
 
-            <Spinner
-                android:id="@+id/spn_student"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:background="#f3fdff"
-                android:ems="10"
-                android:visibility="gone"
-                tools:layout_editor_absoluteX="68dp"
-                tools:layout_editor_absoluteY="85dp" />
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/meet_money"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="Money"
-                android:inputType="number"
-                tools:layout_editor_absoluteX="68dp"
-                tools:layout_editor_absoluteY="85dp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Student"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:text="Is Paid"
-                tools:layout_editor_absoluteX="15dp"
-                tools:layout_editor_absoluteY="16dp" />
+                <Spinner
+                    android:id="@+id/spn_student"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:visibility="visible"
+                    tools:layout_editor_absoluteX="68dp"
+                    tools:layout_editor_absoluteY="85dp" />
 
-            <Spinner
-                android:id="@+id/meet_paid"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/isPaid_Spinner"/>
+            </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:text="Date"
-                tools:layout_editor_absoluteX="15dp"
-                tools:layout_editor_absoluteY="16dp" />
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/mostrar_fecha"
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Student"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/meet_money"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:layout_weight="2"
+                    android:hint="Money"
+                    android:inputType="number"
+                    tools:layout_editor_absoluteX="68dp"
+                    tools:layout_editor_absoluteY="85dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/formato_fecha"
-                android:focusable="false"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:text="Is Paid"
+                    tools:layout_editor_absoluteX="15dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <Spinner
+                    android:id="@+id/meet_paid"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/boolean_Spinner"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:text="Is Done"
+                    tools:layout_editor_absoluteX="15dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <Spinner
+                    android:id="@+id/meet_done"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/boolean_Spinner"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Date"
+                    tools:layout_editor_absoluteX="15dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <EditText
+                    android:id="@+id/mostrar_fecha"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:ems="10"
+                    android:hint="@string/formato_fecha"
+                    android:focusable="false"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/txt_time"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
+                android:layout_weight="1"
                 android:layout_marginBottom="5dp"
                 android:text="Time"
                 tools:layout_editor_absoluteX="15dp"
@@ -113,9 +187,9 @@
 
             <EditText
                 android:id="@+id/mostrar_hora"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:ems="10"
                 android:hint="@string/formato_hora"
                 android:focusable="false"
@@ -123,6 +197,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btn_add_meeting"
