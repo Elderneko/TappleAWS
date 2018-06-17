@@ -74,30 +74,6 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-<<<<<<< HEAD
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:contentDescription="@string/money"
-                android:ems="10"
-                android:hint="@string/money"
-                android:inputType="number"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="68dp"
-                tools:layout_editor_absoluteY="85dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:text="Is Paid"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                tools:layout_editor_absoluteX="15dp"
-                tools:layout_editor_absoluteY="16dp" />
-
-            <Spinner
-                android:id="@+id/meet_paid"
-=======
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -147,22 +123,9 @@
             </LinearLayout>
 
             <LinearLayout
->>>>>>> 22c2d50409b4fe83d3a2db6f60ade72e64d835ba
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-<<<<<<< HEAD
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:contentDescription="@string/date"
-                android:text="@string/date"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="15dp"
-                tools:layout_editor_absoluteY="16dp" />
-=======
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="40dp"
@@ -171,7 +134,6 @@
                     android:text="Is Done"
                     tools:layout_editor_absoluteX="15dp"
                     tools:layout_editor_absoluteY="16dp" />
->>>>>>> 22c2d50409b4fe83d3a2db6f60ade72e64d835ba
 
                 <Spinner
                     android:id="@+id/meet_done"
