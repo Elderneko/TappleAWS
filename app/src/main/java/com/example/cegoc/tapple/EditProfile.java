@@ -128,7 +128,7 @@ public class EditProfile extends AppCompatActivity {
             btn.setEnabled(true);
 
             startActivity(new Intent(EditProfile.this, ProfileActivity.class));
-            finish();
+            finishAffinity();
         }
 
         @Override

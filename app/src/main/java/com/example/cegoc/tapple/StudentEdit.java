@@ -148,7 +148,7 @@ public class StudentEdit extends AppCompatActivity {
             Intent i = new Intent(StudentEdit.this, StudentProfile.class);
             i.putExtra("ID_STUDENT", id_student);
             startActivity(i);
-            finish();
+            finishAffinity();
         }
 
         @Override

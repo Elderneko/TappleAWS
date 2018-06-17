@@ -152,7 +152,8 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            startActivity(new Intent(StudentProfile.this, StudentsActivity.class));
+            finishAffinity();
         }
     }
 
