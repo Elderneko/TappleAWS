@@ -123,6 +123,7 @@ public class NewMeetingActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
+
             // ToDo Crear meeting con los datos del formulario para hacer el insert
             Meeting m = new Meeting(0,
                     id_alumno_aux,
@@ -130,7 +131,7 @@ public class NewMeetingActivity extends AppCompatActivity {
                     new Timestamp(System.currentTimeMillis()),
                     fechaCreaccion,
                     false,
-                    (boolean)isPaid.getSelectedItem());
+                    Boolean.valueOf(isPaid.getSelectedItem().toString()));
             t.addMeeting(m, id_alumno_aux);
             return 1;
         }
@@ -155,11 +156,12 @@ public class NewMeetingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meeting);
 
-        change = new Intent(this, MeetingList.class);
+        change = new Intent(NewMeetingActivity.this, MeetingList.class);
 
         pb_spin = findViewById(R.id.pb_spinner);
         pb = findViewById(R.id.pb_add_meeting);
         money = findViewById(R.id.meet_money);
+        isPaid = findViewById(R.id.meet_paid);
 
         Button btn_add = findViewById(R.id.btn_add_meeting);
         btn_add.setOnClickListener(new View.OnClickListener() {

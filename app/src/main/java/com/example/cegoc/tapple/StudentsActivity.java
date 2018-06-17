@@ -103,6 +103,8 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            startActivity(new Intent(StudentsActivity.this, MainMenu.class));
+            finishAffinity();
         }
     }
 

@@ -109,6 +109,8 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            startActivity(new Intent(MeetingList.this, MainMenu.class));
+            finishAffinity();
         }
     }
 

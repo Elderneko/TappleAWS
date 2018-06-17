@@ -124,6 +124,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            startActivity(new Intent(ProfileActivity.this, MainMenu.class));
+            finishAffinity();
         }
     }
 

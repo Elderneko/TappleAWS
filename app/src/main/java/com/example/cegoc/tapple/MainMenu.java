@@ -1,6 +1,8 @@
 package com.example.cegoc.tapple;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -56,7 +59,9 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            // ToDo Traducciones
+            creaAlerta("Atencion!",
+                    "Esta seguro de que desea cerrar la app?").show();
         }
     }
 
@@ -116,5 +121,30 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     {
         startActivity(new Intent(this, MeetingList.class));
         finishAffinity();
+    }
+
+    /**
+     * Metodo auxiliar para crear DialogAlert en pantalla
+     *
+     * @param titulo  titulo de la ventana
+     * @param mensaje mensaje que queremos mostrar
+     * @return un dialogo, hay que usar .show() para que se muestre en pantalla
+     */
+    private Dialog creaAlerta(String titulo, String mensaje) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainMenu.this);
+        builder.setMessage(mensaje).setTitle(titulo);
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finishAffinity();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        return builder.create();
     }
 }
