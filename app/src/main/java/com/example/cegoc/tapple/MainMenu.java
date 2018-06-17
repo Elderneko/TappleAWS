@@ -101,7 +101,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         String aux = getSharedPreferences("TEACHER_INFO", Context.MODE_PRIVATE).
                 getString("USER_TEACHER","");
         tv.setText(aux);
-        // Activity Main nombre Profesor
+        // Activity Main nombre Profesor en textview
         TextView name = findViewById(R.id.txt_drawer_username);
         name.setText(aux);
     }

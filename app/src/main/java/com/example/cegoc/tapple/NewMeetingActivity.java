@@ -276,6 +276,7 @@ public class NewMeetingActivity extends AppCompatActivity {
     // ToDo el metodo debe retornar true o false
 
     //ToDo Un metodo para validar los datos de cada EditText, que se meteran dentro del if de validForm()
+
     /**
      * Devuelve la id del profesor almacenada en el shared preferences
      *
