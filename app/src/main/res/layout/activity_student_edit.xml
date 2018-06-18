@@ -44,6 +44,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:inputType="text"
+                    android:maxLength="30"
                     android:layout_height="match_parent" />
 
             </LinearLayout>
@@ -64,6 +65,7 @@
                     android:id="@+id/txt_profile_name"
                     android:layout_width="0dp"
                     android:layout_weight="2"
+                    android:maxLength="30"
                     android:inputType="text"
                     android:layout_height="match_parent" />
 
@@ -86,6 +88,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:inputType="text"
+                    android:maxLength="30"
                     android:layout_height="match_parent" />
 
             </LinearLayout>
@@ -106,6 +109,7 @@
                     android:id="@+id/txt_profile_surname2"
                     android:layout_width="0dp"
                     android:layout_weight="2"
+                    android:maxLength="30"
                     android:inputType="text"
                     android:layout_height="match_parent" />
 
@@ -127,6 +131,7 @@
                     android:id="@+id/txt_profile_email"
                     android:layout_width="0dp"
                     android:layout_weight="2"
+                    android:maxLength="50"
                     android:inputType="textEmailAddress"
                     android:layout_height="match_parent" />
 
@@ -169,6 +174,7 @@
                     android:id="@+id/txt_profile_phone"
                     android:layout_width="0dp"
                     android:layout_weight="2"
+                    android:maxLength="11"
                     android:inputType="phone"
                     android:layout_height="match_parent" />
 
@@ -191,6 +197,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:inputType="text"
+                    android:maxLength="200"
                     android:layout_height="match_parent" />
 
             </LinearLayout>
@@ -212,6 +219,7 @@
                     android:layout_width="0dp"
                     android:inputType="text"
                     android:layout_weight="2"
+                    android:maxLength="50"
                     android:layout_height="match_parent" />
 
             </LinearLayout>

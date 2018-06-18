@@ -46,6 +46,7 @@
                 android:layout_marginBottom="5dp"
                 android:ems="10"
                 android:hint="DNI"
+                android:maxLength="30"
                 android:inputType="text"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -55,10 +56,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
+                android:contentDescription="@string/name"
                 android:ems="10"
                 android:hint="@string/name"
-                android:contentDescription="@string/name"
                 android:inputType="text"
+                android:maxLength="30"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -68,6 +70,7 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
+                android:maxLength="30"
                 android:hint="@string/surname"
                 android:contentDescription="@string/surname"
                 android:inputType="text"
@@ -80,6 +83,7 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
+                android:maxLength="30"
                 android:hint="@string/surname"
                 android:contentDescription="@string/surname"
                 android:inputType="text"
@@ -113,6 +117,7 @@
                 android:layout_marginBottom="10dp"
                 android:ems="10"
                 android:hint="e-Mail"
+                android:maxLength="50"
                 android:inputType="textEmailAddress"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -125,6 +130,7 @@
                 android:ems="10"
                 android:hint="@string/phone"
                 android:inputType="phone"
+                android:maxLength="11"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -137,6 +143,7 @@
                 android:hint="@string/address"
                 android:contentDescription="@string/address"
                 android:inputType="text"
+                android:maxLength="200"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
 
@@ -146,6 +153,7 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
+                android:maxLength="50"
                 android:hint="@string/city"
                 android:contentDescription="@string/city"
                 android:inputType="text"

@@ -49,6 +49,7 @@
                 android:inputType="text"
                 android:hint="DNI"
                 android:contentDescription="DNI"
+                android:maxLength="30"
                 android:layout_marginBottom="5dp"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -60,6 +61,7 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
+                android:maxLength="30"
                 android:hint="@string/name"
                 android:contentDescription="@string/name"
                 tools:layout_editor_absoluteX="68dp"
@@ -72,6 +74,7 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
+                android:maxLength="30"
                 android:hint="@string/surname"
                 android:contentDescription="@string/surname"
                 tools:layout_editor_absoluteX="68dp"
@@ -84,6 +87,7 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
+                android:maxLength="30"
                 android:hint="@string/surname"
                 android:contentDescription="@string/surname"
                 tools:layout_editor_absoluteX="68dp"
@@ -117,6 +121,7 @@
                 android:layout_marginBottom="10dp"
                 android:inputType="textEmailAddress"
                 android:hint="e-Mail"
+                android:maxLength="50"
                 android:contentDescription="MAIL"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -128,6 +133,7 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="phone"
+                android:maxLength="11"
                 android:hint="@string/phone"
                 android:contentDescription="@string/phone"
                 tools:layout_editor_absoluteX="68dp"
@@ -151,6 +157,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="@string/user"
+
                 android:contentDescription="@string/user"
                 android:layout_marginBottom="10dp"
                 tools:layout_editor_absoluteX="15dp"
@@ -163,6 +170,7 @@
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
+                android:maxLength="30"
                 android:hint="@string/user"
                 android:contentDescription="@string/user"
                 tools:layout_editor_absoluteX="68dp"
@@ -186,6 +194,7 @@
                 android:layout_marginBottom="10dp"
                 android:inputType="textPassword"
                 android:hint="@string/password"
+                android:maxLength="32"
                 android:contentDescription="@string/password"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -198,6 +207,7 @@
                 android:layout_marginBottom="10dp"
                 android:inputType="textPassword"
                 android:hint="@string/rPass"
+                android:maxLength="32"
                 android:contentDescription="@string/rPass"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />
@@ -210,6 +220,7 @@
                 android:layout_marginBottom="10dp"
                 android:inputType="text"
                 android:hint="@string/sAnswer"
+                android:maxLength="32"
                 android:contentDescription="@string/sAnswer"
                 tools:layout_editor_absoluteX="68dp"
                 tools:layout_editor_absoluteY="85dp" />

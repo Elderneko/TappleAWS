@@ -57,6 +57,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/user"
+                    android:maxLength="30"
                     android:contentDescription="@string/user"
                     android:inputType="text"
                     tools:layout_editor_absoluteX="68dp"
@@ -85,6 +86,7 @@
                     android:hint="@string/password"
                     android:contentDescription="@string/password"
                     android:inputType="textPassword"
+                    android:maxLength="32"
                     tools:layout_editor_absoluteX="68dp"
                     tools:layout_editor_absoluteY="85dp" />
             </LinearLayout>

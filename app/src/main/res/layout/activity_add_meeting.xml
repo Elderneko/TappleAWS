@@ -158,7 +158,8 @@
                     android:layout_weight="1"
                     android:layout_height="40dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Date"
+                    android:text="@string/date"
+                    android:contentDescription="@string/date"
                     tools:layout_editor_absoluteX="15dp"
                     tools:layout_editor_absoluteY="16dp" />
 

@@ -48,6 +48,7 @@
                     android:layout_weight="1"
                     android:contentDescription="DNI"
                     android:text="DNI:"
+                    android:maxLength="30"
                     android:textStyle="bold" />
 
                 <EditText
@@ -70,6 +71,7 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/name"
                     android:text="@string/name"
+                    android:maxLength="30"
                     android:textStyle="bold" />
 
                 <EditText
@@ -77,6 +79,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:inputType="text"
+                    android:maxLength="30"
                     android:gravity="center_vertical"
                     android:layout_height="match_parent" />
 
@@ -92,6 +95,7 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/surname"
                     android:text="@string/surname"
+                    android:maxLength="30"
                     android:textStyle="bold" />
 
                 <EditText
@@ -121,6 +125,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:inputType="text"
+                    android:maxLength="30"
                     android:gravity="center_vertical"
                     android:layout_height="match_parent" />
 
@@ -142,6 +147,7 @@
                     android:id="@+id/edt_profile_email"
                     android:layout_width="0dp"
                     android:layout_weight="2"
+                    android:maxLength="50"
                     android:inputType="textEmailAddress"
                     android:gravity="center_vertical"
                     android:layout_height="match_parent" />
@@ -189,6 +195,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:inputType="number"
+                    android:maxLength="11"
                     android:gravity="center_vertical"
                     android:layout_height="match_parent" />
 

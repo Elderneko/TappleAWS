@@ -33,7 +33,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="Student"
+                    android:text="@string/students"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content" />
 
@@ -57,7 +57,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="Money"
+                    android:text="@string/money"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content" />
 
@@ -83,7 +83,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:layout_marginBottom="5dp"
-                    android:text="Is Paid"
+                    android:text="Esta pagada"
                     android:gravity="center_vertical"
                     tools:layout_editor_absoluteX="15dp"
                     tools:layout_editor_absoluteY="16dp" />
@@ -108,7 +108,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:layout_marginBottom="5dp"
-                    android:text="Is Done"
+                    android:text="Esta realizada"
                     tools:layout_editor_absoluteX="15dp"
                     tools:layout_editor_absoluteY="16dp" />
 
@@ -158,7 +158,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:layout_marginBottom="5dp"
-                    android:text="Meet Date"
+                    android:text="@string/date"
                     tools:layout_editor_absoluteX="15dp"
                     tools:layout_editor_absoluteY="16dp" />
 
