@@ -168,8 +168,13 @@ public class NewMeetingActivity extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ToDo Si validForm(), ejecuta tarea
-                new BackTaskDB1().execute();
+                if(controlFormulario()){
+                    new NewMeetingActivity.BackTaskDB1().execute();
+                } else{
+                    Toast.makeText(NewMeetingActivity.this, "El formulario no es valido",
+                            Toast.LENGTH_SHORT).show();
+                }
+                new NewMeetingActivity.BackTaskDB1().execute();
             }
         });
 
@@ -354,5 +359,19 @@ public class NewMeetingActivity extends AppCompatActivity {
 	        label.setText(myObjs.get(position).getText());
 	        return label;
 	    }
+
+
 	}
+    private boolean controlFormulario(){
+        if(pb_spin.toString().equals("") || pb.toString().equals("")
+                || money.getText().toString().equals("") ||
+                isPaid.toString().equals("")
+                || isDone.toString().equals("") ||
+                mDisplayDate.getText().toString().equals("") ||
+                mDisplayDate2.getText().toString().equals("")){
+            return false;
+        } else{
+            return true;
+        }
+    }
 }
