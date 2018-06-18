@@ -69,14 +69,26 @@ public class ChangePass extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ToDo If controlFormulario
-                new BackTaskDB().execute();
+                if(controlFormulario()){
+                    new ChangePass.BackTaskDB().execute();
+                } else{
+                    Toast.makeText(ChangePass.this, "El formulario no es valido",
+                            Toast.LENGTH_SHORT).show();
+                }
+                new ChangePass.BackTaskDB().execute();
             }
         });
 
     }
 
     public boolean controlFormulario(){
-        return pass.getText().toString().equals(pass2.getText().toString());
+        if (pass.getText().toString().equals(pass2.getText().toString())
+                || pass.getText().toString().equals("")
+                || pass2.getText().toString().equals("")
+        ){
+            return false;
+        } else{
+            return true;
+        }
     }
 }
