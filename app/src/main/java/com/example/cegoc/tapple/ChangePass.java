@@ -75,7 +75,6 @@ public class ChangePass extends AppCompatActivity {
                     Toast.makeText(ChangePass.this, "El formulario no es valido",
                             Toast.LENGTH_SHORT).show();
                 }
-                new ChangePass.BackTaskDB().execute();
             }
         });
 
