@@ -181,14 +181,12 @@ public class StudentEdit extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ToDo Control de formulario
                 if(controlFormulario()){
                     new StudentEdit.BackTaskDB2().execute();
                 } else{
                     Toast.makeText(StudentEdit.this, "El formulario no es valido",
                             Toast.LENGTH_SHORT).show();
                 }
-                new StudentEdit.BackTaskDB2().execute();
             }
         });
 

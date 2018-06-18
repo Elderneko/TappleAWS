@@ -198,7 +198,6 @@ public class MeetingList extends AppCompatActivity implements NavigationView.OnN
             @Override
             public void onClick(View v) {
                 int id = (int) v.getTag();
-                //ToDo Quitar comentario cuando se cree la actividad de MeetingDetails
                 Intent i = new Intent(MeetingList.this, MeetDetails.class);
                 i.putExtra("ID_MEET", id);
                 startActivity(i);

@@ -67,11 +67,8 @@ public class ForgetPass extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ToDo If ControlFormulario
                 new Tarea().execute();
             }
         });
     }
-
-    // ToDo ControlFormulario
 }

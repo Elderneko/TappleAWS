@@ -157,15 +157,12 @@ public class EditProfile extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // ToDo Control formulario
-
                 if(controlFormulario()){
                     new EditProfile.BackTaskDB().execute();
                 } else{
                     Toast.makeText(EditProfile.this, "El formulario no es valido",
                             Toast.LENGTH_SHORT).show();
                 }
-                new BackTaskDB().execute();
             }
         });
 

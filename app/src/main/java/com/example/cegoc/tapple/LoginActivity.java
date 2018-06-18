@@ -112,7 +112,6 @@ public class  LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ToDo Control de formulario
                 new BackTaskDB().execute();
             }
         });
@@ -194,7 +193,6 @@ public class  LoginActivity extends AppCompatActivity {
         startActivity(new Intent(this, ForgetPass.class));
     }
 
-    //ToDo Control de formulario
 
 //    // Declare a string variable for the key we’re going to use in our fingerprint authentication
 //    private static final String KEY_NAME = "yourKey";

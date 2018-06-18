@@ -43,7 +43,6 @@ public class StudentLocation extends FragmentActivity implements OnMapReadyCallb
 
         new BackTask().execute();
 
-        // ToDo Traducciones
         creaAlerta("Atencion!", "Espere unos segundos. " +
                 "Si no carga el mapa vuelva atras y entre de nuevo." +
                 "Si esto no funciona es posible que GoogleMaps no sea capaz de encontrar el lugar.").show();

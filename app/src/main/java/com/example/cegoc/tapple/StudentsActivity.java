@@ -56,7 +56,7 @@ public class StudentsActivity extends AppCompatActivity implements NavigationVie
                     createViewStudent(s);
                 }
             } else {
-                //ToDo No tiene alumnos
+                // No tiene alumnos
             }
         }
 

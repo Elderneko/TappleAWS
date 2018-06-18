@@ -59,7 +59,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            // ToDo Traducciones
             creaAlerta("Atencion!",
                     "Esta seguro de que desea cerrar la app?").show();
         }

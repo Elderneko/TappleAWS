@@ -123,8 +123,6 @@ public class NewMeetingActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-
-            // ToDo Crear meeting con los datos del formulario para hacer el insert
             Meeting m = new Meeting(0,
                     id_alumno_aux,
                     Integer.valueOf(money.getText().toString()),
@@ -274,13 +272,6 @@ public class NewMeetingActivity extends AppCompatActivity {
 
     }
 
-    // ToDo Crear metodo para controlar formulario,
-    // ToDo en el caso del spinner de alumnos si el valor es -1 es que no hay nada
-    // ToDo en los otros spinner si el valor es "-- None --" se retorna false
-    // ToDo el metodo debe retornar true o false
-
-    //ToDo Un metodo para validar los datos de cada EditText, que se meteran dentro del if de validForm()
-
     /**
      * Devuelve la id del profesor almacenada en el shared preferences
      *
@@ -362,11 +353,11 @@ public class NewMeetingActivity extends AppCompatActivity {
 
 
 	}
+
     private boolean controlFormulario(){
-        if(pb_spin.toString().equals("") || pb.toString().equals("")
-                || money.getText().toString().equals("") ||
-                isPaid.toString().equals("")
-                || isDone.toString().equals("") ||
+        if(money.getText().toString().equals("") ||
+                isPaid.getSelectedItem().toString().equals("")
+                || isDone.getSelectedItem().toString().equals("") ||
                 mDisplayDate.getText().toString().equals("") ||
                 mDisplayDate2.getText().toString().equals("")){
             return false;
