@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -135,6 +136,15 @@ public class MeetDetails extends AppCompatActivity implements NavigationView.OnN
         tIsDone = findViewById(R.id.meet_done);
         tCreation = findViewById(R.id.mostrar_datetime_creation);
         tMeet = findViewById(R.id.mostrar_datetime_meet);
+
+        Button btn_noti = findViewById(R.id.notificar_alumno);
+        btn_noti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MeetDetails.this,
+                        "WIP: Notificar a alumno por SMS o EMAIL", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         FloatingActionButton fab = findViewById(R.id.btn_edit_meeting);
