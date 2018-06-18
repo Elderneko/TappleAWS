@@ -30,6 +30,7 @@ import cad.Teacher;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private Button btn_register;
     private Intent change;
     private EditText dni, name, surname1, surname2, email, user, pass, answer,
             pass2, phone, mDisplayDate;
@@ -44,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             pb.setVisibility(View.VISIBLE);
+            btn_register.setEnabled(false);
         }
 
         @Override
@@ -83,6 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
         protected void onPostExecute(Integer aInteger) {
             super.onPostExecute(aInteger);
             pb.setVisibility(View.GONE);
+            btn_register.setEnabled(true);
             // Si no existe el usuario no se hace otra llamada a la BD
             if(aInteger != 0){
                 // Iniciando sesion...
@@ -100,6 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
         protected void onCancelled() {
             super.onCancelled();
             pb.setVisibility(View.GONE);
+            btn_register.setEnabled(true);
         }
     }
 
@@ -122,7 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
         phone = findViewById(R.id.edt_phone);
         answer = findViewById(R.id.edt_answer);
 
-        Button btn_register = findViewById(R.id.btn_register);
+        btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
