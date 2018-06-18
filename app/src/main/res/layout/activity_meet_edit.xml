@@ -180,7 +180,7 @@
                 android:layout_gravity="center"
                 android:background="@color/colorPrimary"
                 android:layout_height="wrap_content"
-                android:text="Notificar alumno" />
+                android:text="Change" />
 
         </LinearLayout>
 

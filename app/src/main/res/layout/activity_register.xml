@@ -240,7 +240,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:gravity="center"
-                android:onClick="goRegister"
+                android:onClick="goLogin"
                 android:text="@string/havePass"
                 android:contentDescription="@string/havePass"
                 android:textColor="#2a4779"

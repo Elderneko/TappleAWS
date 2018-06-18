@@ -44,7 +44,7 @@
     <string name="seetings">Seetings</string>
     <string name="persData">Personal Data</string>
     <string name="signData">Sign in data</string>
-    <string name="havePass">You have a password</string>
+    <string name="havePass">You have an account</string>
     <string name="welcome">Welcome</string>
 
     <string-array name="boolean_Spinner">

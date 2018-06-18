@@ -152,6 +152,11 @@ public class MeetDetails extends AppCompatActivity implements NavigationView.OnN
             @Override
             public void onClick(View view) {
                 // ToDo Ir a EditarCita
+//                Intent i = new Intent(MeetDetails.this, MeetEdit.class);
+//                i.putExtra("ID_MEET", id_meet);
+//                startActivity(i);
+                Toast.makeText(MeetDetails.this,
+                        "WIP: Ir a EditarCita", Toast.LENGTH_LONG).show();
             }
         });
 
