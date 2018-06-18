@@ -84,7 +84,8 @@
         <activity
             android:name=".MeetDetails"
             android:label="@string/title_activity_meet_details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MeetEdit"></activity>
     </application>
 
 </manifest>
