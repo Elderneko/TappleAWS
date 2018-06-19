@@ -5,7 +5,7 @@
     <string name="title_activity_profile">Perfil</string>
     <string name="title_activity_students">Alumnos</string>
     <string name="title_activity_register">Rexistro</string>
-    <string name="welcome">Benvidos</string>
+    <string name="welcome">"Benvidos "</string>
     <string name="havePass">Tes un contrasinal</string>
     <string name="signData">Información de rexistro</string>
     <string name="persData">Información persoal</string>

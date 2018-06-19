@@ -5,7 +5,7 @@
     <string name="title_activity_profile">Profila</string>
     <string name="title_activity_students">Ikasleak</string>
     <string name="title_activity_register">Matrikula</string>
-    <string name="welcome">Ongietorri</string>
+    <string name="welcome">"Ongietorri "</string>
     <string name="havePass">Pasahitza duzu</string>
     <string name="signData">Erregistroaren informazioa</string>
     <string name="persData">Informazio pertsonala</string>

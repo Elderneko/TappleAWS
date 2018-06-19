@@ -32,10 +32,11 @@
 
                 <TextView
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:text="@string/students"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txt_student"
@@ -56,10 +57,11 @@
 
                 <TextView
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:text="@string/money"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/meet_money"
@@ -81,10 +83,11 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_weight="1"
                     android:layout_marginBottom="5dp"
-                    android:text="Esta pagada"
+                    android:layout_weight="1"
                     android:gravity="center_vertical"
+                    android:text="Esta pagada"
+                    android:textStyle="bold"
                     tools:layout_editor_absoluteX="15dp"
                     tools:layout_editor_absoluteY="16dp" />
 
@@ -105,10 +108,11 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:layout_marginBottom="5dp"
                     android:text="Esta realizada"
+                    android:textStyle="bold"
                     tools:layout_editor_absoluteX="15dp"
                     tools:layout_editor_absoluteY="16dp" />
 
@@ -130,11 +134,12 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="40dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Creation Date"
+                    android:layout_weight="1"
                     android:gravity="center_vertical"
+                    android:text="Fecha de creacion"
+                    android:textStyle="bold"
                     tools:layout_editor_absoluteX="15dp"
                     tools:layout_editor_absoluteY="16dp" />
 
@@ -156,9 +161,10 @@
                     android:id="@+id/txt_time"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_weight="1"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:text="@string/date"
+                    android:textStyle="bold"
                     tools:layout_editor_absoluteX="15dp"
                     tools:layout_editor_absoluteY="16dp" />
 

@@ -5,7 +5,7 @@
     <string name="title_activity_profile">Perfil</string>
     <string name="title_activity_students">Estudiants</string>
     <string name="title_activity_register">Registre</string>
-    <string name="welcome">Benvingut</string>
+    <string name="welcome">"Benvingut "</string>
     <string name="havePass">Tens una clau</string>
     <string name="signData">Informació de registre</string>
     <string name="persData">Dades personals</string>

@@ -12,19 +12,16 @@
         android:id="@+id/bienvenida"
         android:layout_width="349dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="96dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
 
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/txt_bienvenida"
@@ -48,44 +45,23 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/linearLayout"
-        android:layout_width="341dp"
-        android:layout_height="149dp"
-        android:layout_marginBottom="96dp"
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="215dp"
+        android:layout_height="225dp"
+        android:layout_marginBottom="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/txt_fraseWonderfull"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/homeStudents"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:onClick="GoToStudents"
-            app:srcCompat="@drawable/outline_people_black_18dp" />
-
-
-        <ImageView
-            android:id="@+id/homeMeetings"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:onClick="GoToMeetings"
-
-            app:srcCompat="@drawable/outline_calendar_today_black_18dp" />
-
-
-    </LinearLayout>
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bienvenida"
+        app:layout_constraintVertical_bias="0.647"
+        app:srcCompat="@drawable/stolenlogo" />
 
     <TextView
         android:id="@+id/txt_fraseWonderfull"

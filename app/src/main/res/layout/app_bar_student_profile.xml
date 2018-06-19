@@ -29,6 +29,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         app:backgroundTint="@color/aasd"
-        android:src="@drawable/ic_menu_send" />
+        android:src="@drawable/baseline_edit_black_18dp" />
 
 </android.support.design.widget.CoordinatorLayout>
